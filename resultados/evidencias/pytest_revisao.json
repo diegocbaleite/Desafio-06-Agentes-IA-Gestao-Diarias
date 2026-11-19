@@ -1,9 +1,9 @@
 {
   "python": "3.14.7",
-  "testes": 97,
-  "aprovados": 97,
+  "testes": 98,
+  "aprovados": 98,
   "falhas": 0,
-  "segundos": 18.3,
+  "segundos": 17.56,
   "modo": "testes locais sem API",
   "data": "2026-11-19"
 }

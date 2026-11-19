@@ -151,6 +151,9 @@ outro `user_id` e exige a verificação e a confirmação do vínculo antes de a
 8. **Evidências preservadas:** bancos do simulador ficam separados dos bancos reais;
    a falta de chave não apaga uma medição anterior já concluída.
 
+9. **Isolamento entre os modos:** análises, campos de conferência e autorizações de
+   inspeção e eliminação são separados entre demonstração e API real.
+
 ---
 
 ## 🛠️ Tecnologias Utilizadas
@@ -319,10 +322,10 @@ histórico, eliminação, conferência humana, isolamento do gabarito e regress�
 Resultado registrado na revisão de **19/11/2026**:
 
 ```text
-97 passed in 18.30s
+98 passed in 17.56s
 ```
 
-São 84 testes existentes e 13 regressões acrescentadas na revisão. Esses testes não
+São 84 testes existentes e 14 regressões acrescentadas na revisão. Esses testes não
 fazem chamadas à API real. A conferência das seis páginas e do fluxo da interface
 também foi realizada com `AppTest`.
 
@@ -415,6 +418,7 @@ publicar o código no repositório.
 
 ## 📚 Documentação Complementar
 
+- [Guia de teste manual antes da entrega](docs/GUIA_TESTE_MANUAL.md)
 - [Instruções detalhadas e decisões técnicas](LEIA-ME.md)
 - [Desenho do processo, PEAS e estimativas](desenho.md)
 - [Relatório da revisão e limitações](relatorio.md)

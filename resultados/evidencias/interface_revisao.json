@@ -12,5 +12,9 @@
   "complementacao_0112_mesma_sessao_valor_770": true,
   "divergencia_exige_justificativa": true,
   "conferencia_registrada": true,
-  "eliminacao_0112_sem_residuo": true
+  "eliminacao_0112_sem_residuo": true,
+  "resultados_por_modo": true,
+  "minuta_por_modo": true,
+  "autorizacao_de_inspecao_por_modo": true,
+  "evidencia_isolamento": "testes/test_interface_modos.py"
 }

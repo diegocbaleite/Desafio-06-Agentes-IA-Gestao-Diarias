@@ -50,7 +50,7 @@ ou `MODELO_LLM` (ex.: `openai/gpt-5.6-luna`; padrão `gpt-5.6-luna`), `TOOL_CALL
 | Objetivo | Comando | Precisa de chave |
 |---|---|---|
 | Ferramentas sem agente (evidência da Etapa 2) | `python -m ferramentas` | não |
-| Testes automatizados (97) | `python -m pytest` | não |
+| Testes automatizados (98) | `python -m pytest` | não |
 | Formulário de conferência | `streamlit run app.py` | sim (ou modo demonstração) |
 | 12 pedidos + 2 complementações, 3 rodadas | `python -m avaliacao.executar_casos` | sim |
 | O mesmo com paralelas ligadas | `python -m avaliacao.executar_casos --paralelas` | sim |
@@ -98,7 +98,7 @@ desafio-01-diarias/
 │   │                           estimar_tokens, gerar_relatorio, comparar_gabarito, execucao
 │   └── externo/gabarito.json   lido SOMENTE por comparar_gabarito.py
 ├── simulador/                  servidor local que imita /v1/chat/completions (só testes/demonstração)
-├── testes/                     97 testes Pytest, nenhum usa chave
+├── testes/                     98 testes Pytest, nenhum usa chave
 ├── dados/                      acervo de exemplos/dados (cópia) + gerador original
 ├── resultados/                 medições (API real), simulador/ e evidencias/
 ├── docs/roteiro_apresentacao.md
@@ -117,6 +117,8 @@ desafio-01-diarias/
   (`criterio_* = nao_atende`) e argumento inválido.
 - **Barreira no código**, não no prompt: lê `RunOutput.tools` e confere argumentos e números.
 - **Dois bancos:** o do agente (eliminável) e o administrativo (guarda legal).
+- **Interface isolada por modo:** resultados, formulários e confirmações de eliminação
+  da demonstração não são reutilizados na API real.
 - **Bancos de avaliação separados:** `bancos/simulador/` não sobrescreve bancos de medições
   reais; executar uma avaliação sem chave preserva resultados anteriores e registra o
   bloqueio em `resultados/bloqueios/` quando necessário.
@@ -191,4 +193,4 @@ resultado da ferramenta correspondente.
 
 ## 8. Evidências da revisão
 
-97 testes locais aprovados, fluxo da interface verificado e medições reais nas duas configurações de paralelismo, nas três configurações de memória e nos cenários de falha. Consulte `relatorio.md` e `resultados/relatorio_medicoes.md`.
+98 testes locais aprovados, fluxo da interface verificado e medições reais nas duas configurações de paralelismo, nas três configurações de memória e nos cenários de falha. Consulte `relatorio.md` e `resultados/relatorio_medicoes.md`.

@@ -97,7 +97,7 @@ def registro_do_modo(modo: str):
 PEDIDOS = {p["numero"]: p for p in acervo.pedidos()}
 COMPLEMENTACOES = {c["numero"]: c for c in acervo.complementacoes()}
 estado = st.session_state
-estado.setdefault("resultados", {})       # numero -> {"resultado": dict, "analise_id": int}
+estado.setdefault("resultados_por_modo", {})
 estado.setdefault("pedido_atual", next(iter(PEDIDOS)))
 
 
@@ -120,6 +120,9 @@ with st.sidebar:
         modo = "simulador"
     st.caption(f"Paralelas: {'ligadas' if config.PARALLEL_TOOL_CALLS else 'desligadas'} · "
                f"tool_call_limit={config.TOOL_CALL_LIMIT} · num_history_runs={config.NUM_HISTORY_RUNS}")
+
+# Cada análise pertence ao mesmo modo que o banco em que foi registrada.
+estado.resultados = estado.resultados_por_modo.setdefault(modo, {})
 
 st.markdown(
     "<div class='cabecalho'><h1>Instrução de Pedidos de Diárias</h1>"
@@ -337,7 +340,7 @@ def pagina_conferencia() -> None:
     with col_hum:
         st.markdown("<div class='humano'><b>👤 Decisão do conferente</b><br>Registro humano, ao lado da "
                     "sugestão. A decisão final continua com o ordenador de despesa.</div>", unsafe_allow_html=True)
-    with st.form(f"conferencia_{numero}"):
+    with st.form(f"conferencia_{modo}_{numero}"):
         minuta = st.text_area("Minuta do despacho (editável)", minuta_original, height=180)
         opcoes = list(ENCAMINHAMENTOS)
         encaminhamento = st.selectbox("Encaminhamento decidido pelo servidor", opcoes,
@@ -382,7 +385,7 @@ def pagina_diligencias() -> None:
     else:
         st.warning("Não há sessão gravada para este pedido no banco do agente.")
     padrao = COMPLEMENTACOES.get(numero, {})
-    with st.form("complementacao"):
+    with st.form(f"complementacao_{modo}"):
         texto = st.text_area("Complementação apresentada pelo solicitante", padrao.get("texto", ""), height=100)
         data = st.text_input("Data de recebimento (AAAA-MM-DD)", padrao.get("data", datetime.now().date().isoformat()))
         enviar = st.form_submit_button("Reanalisar na mesma sessão", type="primary", disabled=modo == "indisponivel")
@@ -404,7 +407,8 @@ def pagina_lgpd() -> None:
     st.caption("Alcance: a eliminação atinge somente o banco do agente (cópia de trabalho). O processo de diárias, "
                "as análises e as conferências são registro administrativo de despesa pública e seguem a guarda "
                "legal da prestação de contas.")
-    autorizado = st.checkbox("Declaro que a inspeção é autorizada (pedido do titular ou auditoria)")
+    autorizado = st.checkbox("Declaro que a inspeção é autorizada (pedido do titular ou auditoria)",
+                             key=f"inspecao_autorizada_{modo}")
     if not autorizado:
         return
     c1, c2 = st.columns(2)
@@ -418,7 +422,8 @@ def pagina_lgpd() -> None:
     st.subheader("Eliminação dos dados de um titular")
     titulares = {p["matricula"]: p["nome"] for p in PEDIDOS.values()}
     titulares.update({"207418": "Carla Regina Souza"})
-    matricula = st.selectbox("Titular", sorted(titulares), format_func=lambda m: f"{m} — {titulares[m]}")
+    matricula = st.selectbox("Titular", sorted(titulares), format_func=lambda m: f"{m} — {titulares[m]}",
+                            key=f"titular_{modo}")
     nome = titulares[matricula]
     loc = eliminacao.localizar(db, matricula, nome)
     a, b, c = st.columns(3)
@@ -429,12 +434,15 @@ def pagina_lgpd() -> None:
     for s in loc.sessoes_sob_outro_user_id:
         rotulo = (f"Sessão {s['session_id']} gravada sob user_id {', '.join(s['user_ids'])} — "
                   f"vínculo pelo pedido: {'verificado' if s['vinculo_verificado'] else 'NÃO verificado'}")
-        if st.checkbox(rotulo, key=f"conf_{s['session_id']}", disabled=not s["vinculo_verificado"]):
+        if st.checkbox(rotulo, key=f"conf_{modo}_{matricula}_{s['session_id']}",
+                       disabled=not s["vinculo_verificado"]):
             confirmadas.append(s["session_id"])
     memorias_alheias = [m["memory_id"] for m in loc.memorias_sob_outro_user_id]
     incluir_memorias = bool(memorias_alheias) and st.checkbox(
-        f"Incluir {len(memorias_alheias)} memória(s) sob outro user_id que citam o titular")
-    confirma = st.checkbox("Confirmo o pedido de eliminação do titular e a verificação do vínculo")
+        f"Incluir {len(memorias_alheias)} memória(s) sob outro user_id que citam o titular",
+        key=f"incluir_memorias_{modo}_{matricula}")
+    confirma = st.checkbox("Confirmo o pedido de eliminação do titular e a verificação do vínculo",
+                           key=f"confirmar_eliminacao_{modo}_{matricula}")
     if st.button("Eliminar e verificar no banco", type="primary", disabled=not confirma):
         ev = eliminacao.eliminar(db, matricula, nome, confirmadas,
                                  memorias_alheias if incluir_memorias else [], executado_por="formulário")

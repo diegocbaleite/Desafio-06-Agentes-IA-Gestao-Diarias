@@ -14,7 +14,8 @@ Atualizada em 19/11/2026 com os resultados reais e as verificações locais.
 | Comparação de paralelas | avaliacao/medir_desempenho.py | comparacao_desempenho.json | medido na API real |
 | Quatro famílias de falha, nove cenários | avaliacao/provocar_falhas.py | falhas_provocadas.json | provocado e relatado, inclusive limites de detecção |
 | Gabarito separado do agente e chave fora do código | avaliacao/externo/, .env e .gitignore | testes/test_isolamento.py | verificado |
-| Ambiente e dependências | .venv, requirements.txt | pip check, 97 testes e interface | instalado e verificado |
+| Isolamento entre demonstração e API | estado, formulários e confirmações em app.py | testes/test_interface_modos.py | verificado com AppTest |
+| Ambiente e dependências | .venv, requirements.txt | pip check, 98 testes e interface | instalado e verificado |
 | Documentação e conferência humana | LEIA-ME.md, desenho.md, relatorio.md | resultados reais e formulário | atualizado |
 
 Limites: o expurgo automático por prazo não foi implementado; urgência continua exigindo julgamento e conferência humana; os casos são fictícios e não cobrem toda a variedade de solicitações novas.

@@ -6,6 +6,7 @@ Os resultados desta seção usam a API real. As simulações ficam em `resultado
 
 ## Correções e verificação local
 
+- Verificação adicional do roteiro manual: corrigida a mistura de análises e campos da interface ao alternar demonstração e API; autorizações de inspeção e eliminação passam a ser separadas por modo.
 - `.venv` instalada e seus comandos corrigidos após a mudança de pasta; dependências sem conflitos.
 - Matrícula do histórico e do cálculo vinculada ao cadastro conferido da execução, inclusive na complementação.
 - Consulta de saldo anterior ao cálculo recusada, mesmo quando o valor informado coincide por acaso.
@@ -13,9 +14,11 @@ Os resultados desta seção usam a API real. As simulações ficam em `resultado
 - Conexões SQLite administrativas fechadas ao término de cada operação.
 - Bancos do simulador separados em `bancos/simulador/`; um bloqueio por falta de chave preserva medições anteriores.
 - Comparação de custo do pedido inicial separada do reenvio de histórico nas complementações.
-- **97 testes aprovados** (84 existentes e 13 regressões), sem chamadas à API. Evidência: `resultados/evidencias/pytest_revisao.json`.
+- **98 testes aprovados** (84 existentes e 14 regressões), sem chamadas à API. Evidência: `resultados/evidencias/pytest_revisao.json`.
 
 A interface foi exercitada nas seis páginas: análise do 0104 sem CPF ou conta expostos, complementação do 0112 na mesma sessão com R$ 770,00, recusa de conferência divergente sem justificativa, registro da conferência e eliminação sem resíduos após confirmar o vínculo. Evidência: `resultados/evidencias/interface_revisao.json`.
+
+A correção adicional da interface foi verificada localmente com `AppTest`. Os números da API abaixo são os da bateria registrada anteriormente; não houve nova bateria paga para esse ajuste de tela.
 
 ## Pedidos e chamadas paralelas na API real
 
