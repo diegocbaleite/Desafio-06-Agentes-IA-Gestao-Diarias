@@ -428,6 +428,8 @@ se provocam identificadores de sessão incorretos. A conferência humana permane
 
 ---
 
-## 👨‍💻 Autor
+## 👨‍💻 Autores
 
-**Diego Assunção Leite**
+- **Diego Assunção Leite**
+
+**FIC_DEV — Programador de Sistemas com IA — SECITECI / Escola Técnica Estadual de Cuiabá — 2026.**
