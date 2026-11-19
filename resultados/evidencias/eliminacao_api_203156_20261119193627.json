@@ -1,0 +1,37 @@
+{
+  "titular": {
+    "matricula": "203156"
+  },
+  "executado_por": "formulário",
+  "executado_em": "2026-11-19T19:36:27",
+  "banco": "agente_diarias.db",
+  "antes": {
+    "registros_por_tabela": {
+      "agno_sessions": 2,
+      "agno_schema_versions": 2,
+      "agno_runs": 2
+    },
+    "ocorrencias": {},
+    "sessoes_do_titular": [],
+    "sessoes_sob_outro_user_id": [],
+    "memorias_do_titular": 0,
+    "memorias_sob_outro_user_id": 0
+  },
+  "acoes": [],
+  "nao_apagadas": [],
+  "depois": {
+    "registros_por_tabela": {
+      "agno_sessions": 2,
+      "agno_schema_versions": 2,
+      "agno_runs": 2
+    },
+    "ocorrencias": {}
+  },
+  "sessoes_de_outros_preservadas": [
+    "DIA-2026-0101",
+    "DIA-2026-0106"
+  ],
+  "sessoes_alheias_apagadas_indevidamente": [],
+  "nada_restou": true,
+  "alcance": "Banco de trabalho do agente. Processo de diárias, registro de análises e conferências são registro administrativo oficial e não são eliminados por esta rotina."
+}
