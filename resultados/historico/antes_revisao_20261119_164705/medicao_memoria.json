@@ -1,0 +1,7 @@
+{
+  "etapa": "Etapa 4 — custo da memória e eliminação",
+  "situacao": "nao_executado",
+  "motivo": "OPENAI_API_KEY ausente no ambiente e no .env; a execução contra o modelo gpt-5.6-luna não foi realizada. Nenhuma medição foi produzida.",
+  "registrado_em": "2026-11-19T15:45:04",
+  "como_executar": "Configure OPENAI_API_KEY em .env e rode novamente: C:\\Users\\Diego\\Downloads\\desafio 6\\desafio-01-diarias\\avaliacao\\medir_memoria.py"
+}

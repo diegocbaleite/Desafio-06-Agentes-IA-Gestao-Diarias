@@ -1,0 +1,74 @@
+Ferramentas e a primeira linha da docstring de cada uma:
+  consultar_servidor             Consulta o cadastro funcional de um servidor e confere o nome informado no pedido.
+  consultar_historico_diarias    Consulta as diárias já concedidas a um servidor e a situação das prestações de contas.
+  calcular_diarias               Calcula quantidade e valor das diárias, a antecedência e o limite mensal de um pedido.
+  consultar_saldo_diarias        Consulta o saldo da dotação de diárias de uma unidade e o compara com o valor pedido.
+
+[DIA-2026-0112] matrícula de outro servidor (troca de dois algarismos)
+  argumentos: {'matricula': '207481', 'nome_informado': 'Carla Regina Souza'}
+  situacao: localizado
+  conferencia_nome: diverge
+  criterio_cadastro: nao_atende
+  mensagem: A matrícula 207481 pertence a outro servidor: o nome informado não corresponde ao titular da matrícula. Pedido em diligência; não calcule diárias com esta matrícula.
+
+[DIA-2026-0112] matrícula corrigida pela complementação
+  argumentos: {'matricula': '207418', 'nome_informado': 'Carla Regina Souza'}
+  situacao: localizado
+  conferencia_nome: confere
+  criterio_cadastro: atende
+  grupo_diaria: C
+  unidade: CUC
+
+[DIA-2026-0108] prestação de contas vencida
+  argumentos: {'matricula': '203648', 'data_partida': '2026-11-03'}
+  data_da_analise: 2026-10-09
+  prestacoes_pendentes: [{'pedido': 'DIA-2026-0023', 'data_retorno': '2026-09-18', 'prazo_final': '2026-09-25', 'situacao': 'vencida'}]
+  criterio_prestacao_contas: nao_atende
+
+[DIA-2026-0102] prestação pendente ainda no prazo (contraste)
+  argumentos: {'matricula': '205882', 'data_partida': '2026-11-09'}
+  prestacoes_pendentes: [{'pedido': 'DIA-2026-0041', 'data_retorno': '2026-10-06', 'prazo_final': '2026-10-13', 'situacao': 'no_prazo'}]
+  criterio_prestacao_contas: atende
+
+[DIA-2026-0103] ida e volta no mesmo dia: meia diária
+  argumentos: {'matricula': '203156', 'destino_uf': 'MT', 'data_pedido': '2026-10-07', 'data_partida': '2026-11-05', 'data_retorno': '2026-11-05'}
+  pernoites: 0
+  quantidade_diarias: 0.5
+  valor_unitario: 280.0
+  valor_total: 140.0
+  antecedencia_dias: 29
+  antecedencia_minima_atendida: True
+
+[DIA-2026-0110] cálculo da viagem a outra UF
+  argumentos: {'matricula': '205507', 'destino_uf': 'RO', 'data_pedido': '2026-10-02', 'data_partida': '2026-11-10', 'data_retorno': '2026-11-14'}
+  classe_destino: outra_uf
+  quantidade_diarias: 4.5
+  valor_unitario: 400.0
+  valor_total: 1800.0
+
+[DIA-2026-0110] saldo insuficiente na unidade
+  argumentos: {'unidade': 'CRH', 'valor': 1800.0}
+  saldo_disponivel: 640.0
+  valor_pedido: 1800.0
+  criterio_saldo_orcamentario: nao_atende
+
+[DIA-2026-0111] retorno ausente: a ferramenta recusa calcular
+  argumentos: {'matricula': '206689', 'destino_uf': 'MT', 'data_pedido': '2026-10-09', 'data_partida': '2026-11-17', 'data_retorno': ''}
+  situacao: dados_incompletos
+  campos_ausentes: ['data_retorno']
+  mensagem: Dado obrigatório ausente ou fora do formato AAAA-MM-DD. Não calcule com data suposta: diligência (art. 9º).
+
+[DIA-2026-0109] limite mensal
+  argumentos: {'matricula': '208114', 'destino_uf': 'MT', 'data_pedido': '2026-10-06', 'data_partida': '2026-11-23', 'data_retorno': '2026-11-26'}
+  diarias_ja_concedidas_no_mes: 8.0
+  quantidade_diarias: 3.5
+  total_no_mes_com_pedido: 11.5
+  criterio_limite_mensal: nao_atende
+
+[minimização] o cadastro nunca devolve CPF nem e-mail
+  argumentos: {'matricula': '200941', 'nome_informado': 'Heitor Vasconcelos Lima'}
+  situacao: localizado
+  cargo: Secretário Adjunto de Gestão Ambiental
+  grupo_diaria: A
+  unidade: GAB
+  contém 'cpf' ou 'email'? False

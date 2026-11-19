@@ -1,0 +1,15 @@
+{
+  "origem": "Gerador ficticio do desafio com semente 20261009",
+  "arquivos_sha256": {
+    "servidores.csv": "c8dc75b928aec0091221210ff588727bc1b7ecd2bb57f10e0869edb27e686b33",
+    "historico_diarias.csv": "3c856579d91adb13c0c4000fbe14acb0b70cd1437268f52502b424133123538c",
+    "tabela_diarias.json": "75c2d48e32a3ec78c1b7a4c97573cb8bc9e1457ee7bd7d056ff6ba03932287fe",
+    "unidades.json": "8470b6b1116cd6db1483ae6d4441c37f607e9321ecc06b2f032397d5b9f09c08",
+    "normas.md": "9151d2a51e52e7f3e574b94f3190399255a8f01061c0a487bcab1aaa5906345b",
+    "pedidos.json": "23a7ef792edbfde913ed5cd755859d63338149889be2fb8ae053368a5f509ea7",
+    "complementacoes.json": "d6a63f78a08489ec3b0ef8dc102fbb29f522f53c444362c5e8f229d90db2604e"
+  },
+  "verificacao": "Conteudo identico ao gerador; JSON comparado como objeto e texto com quebras de linha normalizadas",
+  "destino_api": "https://api.openai.com/v1",
+  "conteudo_enviado": "Pedidos, nomes e matriculas ficticios; datas, destinos, justificativas mascaradas, norma hipotetica e resultados das ferramentas. CPF, conta, agencia e email sao removidos. Chave e gabarito nunca fazem parte do conteudo."
+}

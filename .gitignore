@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+.venv/
+.vscode/
+__pycache__/
+*.pyc
+.pytest_cache/
+bancos/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3

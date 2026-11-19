@@ -1,0 +1,103 @@
+{
+  "modo": "api_real",
+  "modelo": "gpt-5.6-luna",
+  "aviso": null,
+  "gerado_em": "2026-11-19T17:01:50",
+  "comparacao_paralelas": {
+    "paralelas_desligadas": {
+      "rodadas": 3,
+      "corretos_por_rodada": [
+        14,
+        14,
+        13
+      ],
+      "recusados_por_rodada": [
+        0,
+        0,
+        1
+      ],
+      "erros_por_rodada": [
+        0,
+        0,
+        0
+      ],
+      "errados_entregues_por_rodada": [
+        0,
+        0,
+        0
+      ],
+      "chamadas_modelo_por_rodada": [
+        64,
+        64,
+        61
+      ],
+      "max_ferramentas_simultaneas": 1,
+      "custo_por_rodada_usd": [
+        0.069577,
+        0.069223,
+        0.066215
+      ],
+      "tempo_por_rodada_s": [
+        118.68,
+        110.86,
+        105.99
+      ],
+      "primeira_chamada_media_tokens": 4050,
+      "incremento_medio_por_passo_tokens": 239,
+      "entrada_media_pedido_regular_tokens": 22606
+    },
+    "paralelas_ligadas": {
+      "rodadas": 3,
+      "corretos_por_rodada": [
+        14,
+        14,
+        14
+      ],
+      "recusados_por_rodada": [
+        0,
+        0,
+        0
+      ],
+      "erros_por_rodada": [
+        0,
+        0,
+        0
+      ],
+      "errados_entregues_por_rodada": [
+        0,
+        0,
+        0
+      ],
+      "chamadas_modelo_por_rodada": [
+        64,
+        64,
+        64
+      ],
+      "max_ferramentas_simultaneas": 1,
+      "custo_por_rodada_usd": [
+        0.069126,
+        0.069383,
+        0.069271
+      ],
+      "tempo_por_rodada_s": [
+        108.79,
+        111.32,
+        114.25
+      ],
+      "primeira_chamada_media_tokens": 4051,
+      "incremento_medio_por_passo_tokens": 239,
+      "entrada_media_pedido_regular_tokens": 22611
+    }
+  },
+  "estimativa_etapa1": {
+    "premissa": "1ª chamada 2060 tokens, +90 a +150 por passo, 5 passos",
+    "entrada_estimada_min": 11200,
+    "entrada_estimada_max": 11800,
+    "entrada_medida_media": 22606,
+    "erro_relativo_ao_medido": 0.4913
+  },
+  "custo_por_milhao": {
+    "entrada": 0.2,
+    "saida": 1.2
+  }
+}

@@ -1,0 +1,536 @@
+{
+  "modo": "api_real",
+  "modelo": "gpt-5.6-luna",
+  "aviso": null,
+  "gerado_em": "2026-11-19T16:59:34",
+  "configuracoes": [
+    "A · sem memória",
+    "B · histórico da sessão",
+    "C · histórico + memórias do usuário"
+  ],
+  "num_history_runs": 3,
+  "linhas": [
+    {
+      "configuracao": "A · sem memória",
+      "pedido": "DIA-2026-0111",
+      "turno1": {
+        "situacao": "aprovada",
+        "tokens_entrada": 8272,
+        "tokens_saida": 385,
+        "entrada_por_chamada": [
+          4037,
+          4235
+        ],
+        "chamadas_modelo": 2,
+        "ferramentas_por_chamada": [
+          1,
+          0
+        ],
+        "max_ferramentas_simultaneas": 1,
+        "chamadas_ferramenta": 1,
+        "segundos": 4.51,
+        "custo_usd": 0.002116
+      },
+      "turno2": {
+        "situacao": "recusada",
+        "tokens_entrada": 4001,
+        "tokens_saida": 482,
+        "entrada_por_chamada": [
+          4001
+        ],
+        "chamadas_modelo": 1,
+        "ferramentas_por_chamada": [
+          0
+        ],
+        "max_ferramentas_simultaneas": 0,
+        "chamadas_ferramenta": 0,
+        "segundos": 4.23,
+        "custo_usd": 0.001379
+      },
+      "complementacao_aplicada_ao_pedido_certo": false,
+      "session_id": "DIA-2026-0111",
+      "user_id": "206689",
+      "motivos_recusa_turno2": [
+        "Matrícula '' não consta do pedido nem da complementação.",
+        "Cadastro não consultado nesta execução."
+      ]
+    },
+    {
+      "configuracao": "A · sem memória",
+      "pedido": "DIA-2026-0112",
+      "turno1": {
+        "situacao": "aprovada",
+        "tokens_entrada": 8248,
+        "tokens_saida": 435,
+        "entrada_por_chamada": [
+          4033,
+          4215
+        ],
+        "chamadas_modelo": 2,
+        "ferramentas_por_chamada": [
+          1,
+          0
+        ],
+        "max_ferramentas_simultaneas": 1,
+        "chamadas_ferramenta": 1,
+        "segundos": 4.73,
+        "custo_usd": 0.002172
+      },
+      "turno2": {
+        "situacao": "recusada",
+        "tokens_entrada": 8203,
+        "tokens_saida": 498,
+        "entrada_por_chamada": [
+          4004,
+          4199
+        ],
+        "chamadas_modelo": 2,
+        "ferramentas_por_chamada": [
+          1,
+          0
+        ],
+        "max_ferramentas_simultaneas": 1,
+        "chamadas_ferramenta": 1,
+        "segundos": 5.57,
+        "custo_usd": 0.002238
+      },
+      "complementacao_aplicada_ao_pedido_certo": false,
+      "session_id": "DIA-2026-0112",
+      "user_id": "207481",
+      "motivos_recusa_turno2": [
+        "consultar_servidor: nome informado diferente do nome do pedido."
+      ]
+    },
+    {
+      "configuracao": "B · histórico da sessão",
+      "pedido": "DIA-2026-0111",
+      "turno1": {
+        "situacao": "aprovada",
+        "tokens_entrada": 8272,
+        "tokens_saida": 390,
+        "entrada_por_chamada": [
+          4037,
+          4235
+        ],
+        "chamadas_modelo": 2,
+        "ferramentas_por_chamada": [
+          1,
+          0
+        ],
+        "max_ferramentas_simultaneas": 1,
+        "chamadas_ferramenta": 1,
+        "segundos": 4.55,
+        "custo_usd": 0.002122
+      },
+      "turno2": {
+        "situacao": "aprovada",
+        "tokens_entrada": 25784,
+        "tokens_saida": 617,
+        "entrada_por_chamada": [
+          4694,
+          4892,
+          5102,
+          5460,
+          5636
+        ],
+        "chamadas_modelo": 5,
+        "ferramentas_por_chamada": [
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "max_ferramentas_simultaneas": 1,
+        "chamadas_ferramenta": 4,
+        "segundos": 8.47,
+        "custo_usd": 0.005897
+      },
+      "complementacao_aplicada_ao_pedido_certo": true,
+      "session_id": "DIA-2026-0111",
+      "user_id": "206689",
+      "motivos_recusa_turno2": []
+    },
+    {
+      "configuracao": "B · histórico da sessão",
+      "pedido": "DIA-2026-0112",
+      "turno1": {
+        "situacao": "aprovada",
+        "tokens_entrada": 8248,
+        "tokens_saida": 484,
+        "entrada_por_chamada": [
+          4033,
+          4215
+        ],
+        "chamadas_modelo": 2,
+        "ferramentas_por_chamada": [
+          1,
+          0
+        ],
+        "max_ferramentas_simultaneas": 1,
+        "chamadas_ferramenta": 1,
+        "segundos": 4.85,
+        "custo_usd": 0.00223
+      },
+      "turno2": {
+        "situacao": "aprovada",
+        "tokens_entrada": 26164,
+        "tokens_saida": 632,
+        "entrada_por_chamada": [
+          4773,
+          4967,
+          5177,
+          5535,
+          5712
+        ],
+        "chamadas_modelo": 5,
+        "ferramentas_por_chamada": [
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "max_ferramentas_simultaneas": 1,
+        "chamadas_ferramenta": 4,
+        "segundos": 9.49,
+        "custo_usd": 0.005991
+      },
+      "complementacao_aplicada_ao_pedido_certo": true,
+      "session_id": "DIA-2026-0112",
+      "user_id": "207481",
+      "motivos_recusa_turno2": []
+    },
+    {
+      "configuracao": "C · histórico + memórias do usuário",
+      "pedido": "DIA-2026-0111",
+      "turno1": {
+        "situacao": "aprovada",
+        "tokens_entrada": 9551,
+        "tokens_saida": 591,
+        "entrada_por_chamada": [
+          4063,
+          4261
+        ],
+        "chamadas_modelo": 2,
+        "ferramentas_por_chamada": [
+          1,
+          0
+        ],
+        "max_ferramentas_simultaneas": 1,
+        "chamadas_ferramenta": 1,
+        "segundos": 4.82,
+        "custo_usd": 0.002619
+      },
+      "turno2": {
+        "situacao": "aprovada",
+        "tokens_entrada": 28166,
+        "tokens_saida": 737,
+        "entrada_por_chamada": [
+          4898,
+          5096,
+          5306,
+          5664,
+          5840
+        ],
+        "chamadas_modelo": 5,
+        "ferramentas_por_chamada": [
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "max_ferramentas_simultaneas": 1,
+        "chamadas_ferramenta": 4,
+        "segundos": 8.84,
+        "custo_usd": 0.006518
+      },
+      "complementacao_aplicada_ao_pedido_certo": true,
+      "session_id": "DIA-2026-0111",
+      "user_id": "206689",
+      "motivos_recusa_turno2": []
+    },
+    {
+      "configuracao": "C · histórico + memórias do usuário",
+      "pedido": "DIA-2026-0112",
+      "turno1": {
+        "situacao": "aprovada",
+        "tokens_entrada": 9397,
+        "tokens_saida": 486,
+        "entrada_por_chamada": [
+          4059,
+          4241
+        ],
+        "chamadas_modelo": 2,
+        "ferramentas_por_chamada": [
+          1,
+          0
+        ],
+        "max_ferramentas_simultaneas": 1,
+        "chamadas_ferramenta": 1,
+        "segundos": 4.26,
+        "custo_usd": 0.002463
+      },
+      "turno2": {
+        "situacao": "aprovada",
+        "tokens_entrada": 27182,
+        "tokens_saida": 700,
+        "entrada_por_chamada": [
+          4763,
+          4957,
+          5167,
+          5525,
+          5702
+        ],
+        "chamadas_modelo": 5,
+        "ferramentas_por_chamada": [
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "max_ferramentas_simultaneas": 1,
+        "chamadas_ferramenta": 4,
+        "segundos": 9.36,
+        "custo_usd": 0.006276
+      },
+      "complementacao_aplicada_ao_pedido_certo": true,
+      "session_id": "DIA-2026-0112",
+      "user_id": "207481",
+      "motivos_recusa_turno2": []
+    }
+  ],
+  "eliminacao": {
+    "registros_antes": {
+      "agno_memories": 1,
+      "agno_schema_versions": 3,
+      "agno_sessions": 2,
+      "agno_runs": 4
+    },
+    "memorias_por_user_id": {
+      "206689": 1
+    },
+    "DIA-2026-0111": {
+      "sem_confirmacao": {
+        "titular": {
+          "matricula": "206689"
+        },
+        "executado_por": "medir_memoria (sem confirmação)",
+        "executado_em": "2026-11-19T16:59:34",
+        "banco": "memoria_historico_usuario.db",
+        "antes": {
+          "registros_por_tabela": {
+            "agno_memories": 1,
+            "agno_schema_versions": 3,
+            "agno_sessions": 2,
+            "agno_runs": 4
+          },
+          "ocorrencias": {
+            "agno_memories": {
+              "matricula": 1,
+              "nome": 1
+            },
+            "agno_sessions": {
+              "matricula": 1
+            },
+            "agno_runs": {
+              "matricula": 2,
+              "nome": 2
+            }
+          },
+          "sessoes_do_titular": [
+            "DIA-2026-0111"
+          ],
+          "sessoes_sob_outro_user_id": [],
+          "memorias_do_titular": 1,
+          "memorias_sob_outro_user_id": 0
+        },
+        "acoes": [
+          "delete_sessions(['DIA-2026-0111'], user_id=206689)",
+          "delete_user_memories(1 id(s), user_id=206689)"
+        ],
+        "nao_apagadas": [],
+        "depois": {
+          "registros_por_tabela": {
+            "agno_memories": 0,
+            "agno_schema_versions": 3,
+            "agno_sessions": 1,
+            "agno_runs": 2
+          },
+          "ocorrencias": {}
+        },
+        "sessoes_de_outros_preservadas": [
+          "DIA-2026-0112"
+        ],
+        "sessoes_alheias_apagadas_indevidamente": [],
+        "nada_restou": true,
+        "alcance": "Banco de trabalho do agente. Processo de diárias, registro de análises e conferências são registro administrativo oficial e não são eliminados por esta rotina."
+      },
+      "com_confirmacao": {
+        "titular": {
+          "matricula": "206689"
+        },
+        "executado_por": "medir_memoria (vínculo verificado pelo pedido)",
+        "executado_em": "2026-11-19T16:59:34",
+        "banco": "memoria_historico_usuario.db",
+        "antes": {
+          "registros_por_tabela": {
+            "agno_memories": 0,
+            "agno_schema_versions": 3,
+            "agno_sessions": 1,
+            "agno_runs": 2
+          },
+          "ocorrencias": {},
+          "sessoes_do_titular": [],
+          "sessoes_sob_outro_user_id": [],
+          "memorias_do_titular": 0,
+          "memorias_sob_outro_user_id": 0
+        },
+        "acoes": [],
+        "nao_apagadas": [],
+        "depois": {
+          "registros_por_tabela": {
+            "agno_memories": 0,
+            "agno_schema_versions": 3,
+            "agno_sessions": 1,
+            "agno_runs": 2
+          },
+          "ocorrencias": {}
+        },
+        "sessoes_de_outros_preservadas": [
+          "DIA-2026-0112"
+        ],
+        "sessoes_alheias_apagadas_indevidamente": [],
+        "nada_restou": true,
+        "alcance": "Banco de trabalho do agente. Processo de diárias, registro de análises e conferências são registro administrativo oficial e não são eliminados por esta rotina."
+      }
+    },
+    "DIA-2026-0112": {
+      "sem_confirmacao": {
+        "titular": {
+          "matricula": "207418"
+        },
+        "executado_por": "medir_memoria (sem confirmação)",
+        "executado_em": "2026-11-19T16:59:34",
+        "banco": "memoria_historico_usuario.db",
+        "antes": {
+          "registros_por_tabela": {
+            "agno_memories": 0,
+            "agno_schema_versions": 3,
+            "agno_sessions": 1,
+            "agno_runs": 2
+          },
+          "ocorrencias": {
+            "agno_runs": {
+              "matricula": 1,
+              "nome": 2
+            }
+          },
+          "sessoes_do_titular": [],
+          "sessoes_sob_outro_user_id": [
+            {
+              "session_id": "DIA-2026-0112",
+              "user_ids": [
+                "207481"
+              ],
+              "tabelas": [
+                "agno_runs"
+              ],
+              "vinculo_verificado": true,
+              "observacao": "Sessão cita o titular, mas foi gravada sob outro user_id; exige verificação de vínculo e confirmação antes da exclusão."
+            }
+          ],
+          "memorias_do_titular": 0,
+          "memorias_sob_outro_user_id": 0
+        },
+        "acoes": [],
+        "nao_apagadas": [
+          {
+            "session_id": "DIA-2026-0112",
+            "user_ids": [
+              "207481"
+            ],
+            "motivo": "sem confirmação"
+          }
+        ],
+        "depois": {
+          "registros_por_tabela": {
+            "agno_memories": 0,
+            "agno_schema_versions": 3,
+            "agno_sessions": 1,
+            "agno_runs": 2
+          },
+          "ocorrencias": {
+            "agno_runs": {
+              "matricula": 1,
+              "nome": 2
+            }
+          }
+        },
+        "sessoes_de_outros_preservadas": [
+          "DIA-2026-0112"
+        ],
+        "sessoes_alheias_apagadas_indevidamente": [],
+        "nada_restou": false,
+        "alcance": "Banco de trabalho do agente. Processo de diárias, registro de análises e conferências são registro administrativo oficial e não são eliminados por esta rotina."
+      },
+      "com_confirmacao": {
+        "titular": {
+          "matricula": "207418"
+        },
+        "executado_por": "medir_memoria (vínculo verificado pelo pedido)",
+        "executado_em": "2026-11-19T16:59:34",
+        "banco": "memoria_historico_usuario.db",
+        "antes": {
+          "registros_por_tabela": {
+            "agno_memories": 0,
+            "agno_schema_versions": 3,
+            "agno_sessions": 1,
+            "agno_runs": 2
+          },
+          "ocorrencias": {
+            "agno_runs": {
+              "matricula": 1,
+              "nome": 2
+            }
+          },
+          "sessoes_do_titular": [],
+          "sessoes_sob_outro_user_id": [
+            {
+              "session_id": "DIA-2026-0112",
+              "user_ids": [
+                "207481"
+              ],
+              "tabelas": [
+                "agno_runs"
+              ],
+              "vinculo_verificado": true,
+              "observacao": "Sessão cita o titular, mas foi gravada sob outro user_id; exige verificação de vínculo e confirmação antes da exclusão."
+            }
+          ],
+          "memorias_do_titular": 0,
+          "memorias_sob_outro_user_id": 0
+        },
+        "acoes": [
+          "delete_sessions([DIA-2026-0112]) — gravada sob user_id ['207481'], vínculo verificado pelo pedido e confirmado por medir_memoria (vínculo verificado pelo pedido)"
+        ],
+        "nao_apagadas": [],
+        "depois": {
+          "registros_por_tabela": {
+            "agno_memories": 0,
+            "agno_schema_versions": 3,
+            "agno_sessions": 0,
+            "agno_runs": 0
+          },
+          "ocorrencias": {}
+        },
+        "sessoes_de_outros_preservadas": [],
+        "sessoes_alheias_apagadas_indevidamente": [],
+        "nada_restou": true,
+        "alcance": "Banco de trabalho do agente. Processo de diárias, registro de análises e conferências são registro administrativo oficial e não são eliminados por esta rotina."
+      }
+    }
+  }
+}

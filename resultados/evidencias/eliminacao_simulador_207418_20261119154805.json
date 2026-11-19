@@ -1,0 +1,53 @@
+{
+  "titular": {
+    "matricula": "207418"
+  },
+  "executado_por": "formulário",
+  "executado_em": "2026-11-19T15:48:05",
+  "banco": "agente_diarias_simulador.db",
+  "antes": {
+    "registros_por_tabela": {
+      "agno_sessions": 1,
+      "agno_schema_versions": 2,
+      "agno_runs": 2
+    },
+    "ocorrencias": {
+      "agno_runs": {
+        "matricula": 1,
+        "nome": 2
+      }
+    },
+    "sessoes_do_titular": [],
+    "sessoes_sob_outro_user_id": [
+      {
+        "session_id": "DIA-2026-0112",
+        "user_ids": [
+          "207481"
+        ],
+        "tabelas": [
+          "agno_runs"
+        ],
+        "vinculo_verificado": true,
+        "observacao": "Sessão cita o titular, mas foi gravada sob outro user_id; exige verificação de vínculo e confirmação antes da exclusão."
+      }
+    ],
+    "memorias_do_titular": 0,
+    "memorias_sob_outro_user_id": 0
+  },
+  "acoes": [
+    "delete_sessions([DIA-2026-0112]) — gravada sob user_id ['207481'], vínculo verificado pelo pedido e confirmado por formulário"
+  ],
+  "nao_apagadas": [],
+  "depois": {
+    "registros_por_tabela": {
+      "agno_sessions": 0,
+      "agno_schema_versions": 2,
+      "agno_runs": 0
+    },
+    "ocorrencias": {}
+  },
+  "sessoes_de_outros_preservadas": [],
+  "sessoes_alheias_apagadas_indevidamente": [],
+  "nada_restou": true,
+  "alcance": "Banco de trabalho do agente. Processo de diárias, registro de análises e conferências são registro administrativo oficial e não são eliminados por esta rotina."
+}

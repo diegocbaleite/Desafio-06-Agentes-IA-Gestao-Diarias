@@ -1,0 +1,10 @@
+# Versões verificadas neste projeto (Python 3.14.7, Windows 11)
+agno==3.0.9
+openai==3.55.1
+python-dotenv==1.2.4
+pydantic==2.14.1
+streamlit==1.66.1
+sqlalchemy[asyncio]==2.1.9   # o extra asyncio traz o greenlet exigido pelo SqliteDb do Agno
+pandas                        # tabelas da interface (dependência do Streamlit)
+pytest==9.2.0
+tiktoken                      # apenas para avaliacao/estimar_tokens.py

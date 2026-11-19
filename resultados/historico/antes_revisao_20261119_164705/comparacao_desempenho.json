@@ -1,0 +1,68 @@
+{
+  "modo": "api_real",
+  "modelo": "gpt-5.6-luna",
+  "aviso": null,
+  "gerado_em": "2026-11-19T16:05:29",
+  "comparacao_paralelas": {
+    "paralelas_desligadas": {
+      "rodadas": 3,
+      "corretos_por_rodada": [
+        13,
+        13,
+        12
+      ],
+      "recusados_por_rodada": [
+        1,
+        1,
+        1
+      ],
+      "erros_por_rodada": [
+        0,
+        0,
+        0
+      ],
+      "errados_entregues_por_rodada": [
+        0,
+        0,
+        1
+      ],
+      "chamadas_modelo_por_rodada": [
+        64,
+        64,
+        64
+      ],
+      "max_ferramentas_simultaneas": 1,
+      "custo_por_rodada_usd": [
+        0.068697,
+        0.068565,
+        0.068802
+      ],
+      "tempo_por_rodada_s": [
+        122.26,
+        118.05,
+        121.64
+      ],
+      "primeira_chamada_media_tokens": 4124,
+      "incremento_medio_por_passo_tokens": 238,
+      "entrada_media_pedido_regular_tokens": 22967
+    },
+    "paralelas_ligadas": {
+      "etapa": "Etapa 6 — 12 pedidos + 2 complementações (paralelas_ligadas)",
+      "situacao": "nao_executado",
+      "motivo": "OPENAI_API_KEY ausente no ambiente e no .env; a execução contra o modelo gpt-5.6-luna não foi realizada. Nenhuma medição foi produzida.",
+      "registrado_em": "2026-11-19T16:04:03",
+      "como_executar": "Configure OPENAI_API_KEY em .env e rode novamente: C:\\Users\\Diego\\Downloads\\desafio 6\\desafio-01-diarias\\avaliacao\\executar_casos.py --paralelas"
+    }
+  },
+  "estimativa_etapa1": {
+    "premissa": "1ª chamada 2060 tokens, +90 a +150 por passo, 5 passos",
+    "entrada_estimada_min": 11200,
+    "entrada_estimada_max": 11800,
+    "entrada_medida_media": 22967,
+    "erro_relativo_ao_ponto_medio": 0.4993
+  },
+  "custo_por_milhao": {
+    "entrada": 0.2,
+    "saida": 1.2
+  }
+}

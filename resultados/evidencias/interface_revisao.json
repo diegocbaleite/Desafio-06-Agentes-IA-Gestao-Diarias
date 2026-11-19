@@ -1,0 +1,16 @@
+{
+  "modo": "simulador",
+  "paginas_sem_excecao": [
+    "Painel",
+    "Análise de pedidos",
+    "Conferência humana",
+    "Diligências",
+    "Memória e LGPD",
+    "Resultados e auditoria"
+  ],
+  "analise_0104_sem_pii": true,
+  "complementacao_0112_mesma_sessao_valor_770": true,
+  "divergencia_exige_justificativa": true,
+  "conferencia_registrada": true,
+  "eliminacao_0112_sem_residuo": true
+}

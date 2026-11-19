@@ -1,0 +1,103 @@
+{
+  "modo": "simulador",
+  "modelo": "gpt-5.6-luna",
+  "aviso": "EXECUÇÃO COM SIMULADOR LOCAL: valida o pipeline (Agno, ferramentas, barreira, memória, eliminação). Tokens, tempo e custo são do simulador e NÃO são medições do modelo gpt-5.6-luna.",
+  "gerado_em": "2026-11-19T17:01:50",
+  "comparacao_paralelas": {
+    "paralelas_desligadas": {
+      "rodadas": 3,
+      "corretos_por_rodada": [
+        14,
+        14,
+        14
+      ],
+      "recusados_por_rodada": [
+        0,
+        0,
+        0
+      ],
+      "erros_por_rodada": [
+        0,
+        0,
+        0
+      ],
+      "errados_entregues_por_rodada": [
+        0,
+        0,
+        0
+      ],
+      "chamadas_modelo_por_rodada": [
+        64,
+        64,
+        64
+      ],
+      "max_ferramentas_simultaneas": 1,
+      "custo_por_rodada_usd": [
+        0.066309,
+        0.066309,
+        0.066309
+      ],
+      "tempo_por_rodada_s": [
+        0.84,
+        0.84,
+        0.61
+      ],
+      "primeira_chamada_media_tokens": 4000,
+      "incremento_medio_por_passo_tokens": 215,
+      "entrada_media_pedido_regular_tokens": 22147
+    },
+    "paralelas_ligadas": {
+      "rodadas": 3,
+      "corretos_por_rodada": [
+        14,
+        14,
+        14
+      ],
+      "recusados_por_rodada": [
+        0,
+        0,
+        0
+      ],
+      "erros_por_rodada": [
+        0,
+        0,
+        0
+      ],
+      "errados_entregues_por_rodada": [
+        0,
+        0,
+        0
+      ],
+      "chamadas_modelo_por_rodada": [
+        52,
+        52,
+        52
+      ],
+      "max_ferramentas_simultaneas": 2,
+      "custo_por_rodada_usd": [
+        0.055258,
+        0.055258,
+        0.055258
+      ],
+      "tempo_por_rodada_s": [
+        0.7,
+        0.68,
+        0.59
+      ],
+      "primeira_chamada_media_tokens": 3999,
+      "incremento_medio_por_passo_tokens": 282,
+      "entrada_media_pedido_regular_tokens": 17723
+    }
+  },
+  "estimativa_etapa1": {
+    "premissa": "1ª chamada 2060 tokens, +90 a +150 por passo, 5 passos",
+    "entrada_estimada_min": 11200,
+    "entrada_estimada_max": 11800,
+    "entrada_medida_media": 22147,
+    "erro_relativo_ao_medido": 0.4807
+  },
+  "custo_por_milhao": {
+    "entrada": 0.2,
+    "saida": 1.2
+  }
+}

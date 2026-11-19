@@ -1,0 +1,116 @@
+{
+  "natureza": "ESTIMATIVA com tokenizador o200k_base sobre as requisições reais montadas pelo Agno; não é medição do gpt-5.6-luna.",
+  "parametros_enviados_na_requisicao": {
+    "model": "gpt-5.6-luna",
+    "parallel_tool_calls": false,
+    "reasoning_effort": "none"
+  },
+  "componentes_primeira_chamada": {
+    "instrucao_de_sistema_com_norma": 1702,
+    "norma_sozinha": 642,
+    "esquemas_das_4_ferramentas": 1846,
+    "esquema_de_saida_Instrucao": 714,
+    "mensagem_do_pedido_0101": 141
+  },
+  "resumo_pedidos_regulares_5_chamadas": {
+    "primeira_chamada_media": 4416,
+    "incremento_medio": 236,
+    "incremento_min": 165,
+    "incremento_max": 364,
+    "entrada_total_media_pedido_regular": 24402
+  },
+  "entrada_por_chamada": {
+    "DIA-2026-0101": [
+      4411,
+      4605,
+      4809,
+      5170,
+      5340
+    ],
+    "DIA-2026-0102": [
+      4403,
+      4594,
+      4848,
+      5209,
+      5379
+    ],
+    "DIA-2026-0103": [
+      4406,
+      4600,
+      4804,
+      5165,
+      5336
+    ],
+    "DIA-2026-0104": [
+      4460,
+      4662,
+      4866,
+      5230,
+      5400
+    ],
+    "DIA-2026-0105": [
+      4408,
+      4599,
+      4803,
+      5164,
+      5335
+    ],
+    "DIA-2026-0106": [
+      4420,
+      4611,
+      4815,
+      5177,
+      5351
+    ],
+    "DIA-2026-0107": [
+      4453,
+      4652,
+      4856,
+      5217,
+      5388
+    ],
+    "DIA-2026-0108": [
+      4397,
+      4588,
+      4843,
+      5204,
+      5374
+    ],
+    "DIA-2026-0109": [
+      4400,
+      4594,
+      4817,
+      5180,
+      5345
+    ],
+    "DIA-2026-0110": [
+      4403,
+      4605,
+      4809,
+      5172,
+      5346
+    ],
+    "DIA-2026-0111": [
+      4402,
+      4596
+    ],
+    "DIA-2026-0112": [
+      4398,
+      4576
+    ],
+    "DIA-2026-0111 (complementação, com histórico)": [
+      5046,
+      5240,
+      5444,
+      5805,
+      5975
+    ],
+    "DIA-2026-0112 (complementação, com histórico)": [
+      5065,
+      5255,
+      5459,
+      5820,
+      5991
+    ]
+  }
+}

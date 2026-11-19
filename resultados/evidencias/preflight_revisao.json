@@ -1,0 +1,29 @@
+{
+  "situacao": "aprovada",
+  "modelo": "gpt-5.6-luna",
+  "metricas": {
+    "tokens_entrada": 22544,
+    "tokens_saida": 611,
+    "entrada_por_chamada": [
+      4046,
+      4244,
+      4454,
+      4812,
+      4988
+    ],
+    "chamadas_modelo": 5,
+    "ferramentas_por_chamada": [
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "max_ferramentas_simultaneas": 1,
+    "chamadas_ferramenta": 4,
+    "segundos": 9.55,
+    "custo_usd": 0.005242
+  },
+  "motivos": [],
+  "origem_dados": "acervo ficticio confirmado pelo gerador"
+}
