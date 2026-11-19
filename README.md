@@ -18,11 +18,21 @@ exercício são **fictícios**.
 
 ## 👨‍💻 Identificação
 
-**Aluno e autor:** Diego Assunção Leite  
-**Projeto:** Desafio 06 — Agentes de IA na Gestão de Diárias  
-**Exercício de referência:** Instrução de Pedidos de Diárias  
-**Conteúdos:** Aulas 01 a 07 — Módulo de Agentes Autônomos  
-**Modalidade:** Individual
+**Aluno:**
+
+- Diego Assunção Leite
+
+**Curso:** FIC_DEV — Programador de Sistemas com IA.
+
+**Módulo:** Inteligência Artificial Generativa — Aulas 01 a 17.
+
+**Instituição:** SECITECI / Escola Técnica Estadual de Cuiabá.
+
+**Atividade:** Desafio Prático 01 — Instrução de Pedidos de Diárias — versão 1.0 (2026).
+
+**Repositório:** [Desafio-06-Agentes-IA-Gestao-Diarias](https://github.com/diegocbaleite/Desafio-06-Agentes-IA-Gestao-Diarias).
+
+**Modalidade:** Individual.
 
 ---
 
