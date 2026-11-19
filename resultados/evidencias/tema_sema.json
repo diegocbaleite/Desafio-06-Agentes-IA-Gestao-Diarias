@@ -1,0 +1,18 @@
+{
+  "data": "2026-11-19",
+  "referencia": "https://www.sema.mt.gov.br/site/templates/padraogoverno01/css/template-azul.css",
+  "cores": {
+    "principal": "#21307A",
+    "destaque": "#228BE6",
+    "fundo": "#FFFFFF",
+    "fundo_secundario": "#EEEFF2",
+    "texto": "#495057"
+  },
+  "configuracao": ".streamlit/config.toml",
+  "componentes": "Streamlit nativo, sem injecao de CSS ou HTML",
+  "configuracao_carregada_e_conferida": true,
+  "seis_paginas_e_fluxo_principal_sem_excecao": true,
+  "regressao_troca_de_modos": "1 passed in 2.49s",
+  "api_real_acionada_na_verificacao": false,
+  "inspecao_visual_em_navegador": "nao realizada; nenhum navegador conectado disponivel"
+}

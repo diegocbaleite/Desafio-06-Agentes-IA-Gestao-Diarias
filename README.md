@@ -156,6 +156,28 @@ outro `user_id` e exige a verificação e a confirmação do vínculo antes de a
 
 ---
 
+## 🎨 Identidade visual
+
+A interface utiliza a paleta consultada no [portal da SEMA-MT](https://www.sema.mt.gov.br/),
+com cores definidas no tema nativo do Streamlit em `.streamlit/config.toml`.
+
+| Uso | Cor |
+|---|---|
+| Cor principal e menu lateral | Azul-escuro `#21307A` |
+| Destaques do menu e informações | Azul-claro `#228BE6` |
+| Fundo principal | Branco `#FFFFFF` |
+| Campos e superfícies secundárias | Cinza claro `#EEEFF2` |
+| Texto principal | Cinza `#495057` |
+
+Botões, tabelas, indicadores e avisos usam os componentes nativos. As cores de sucesso,
+atenção e erro continuam indicando a situação da análise.
+
+Referência das cores: [folha de estilos do portal](https://www.sema.mt.gov.br/site/templates/padraogoverno01/css/template-azul.css),
+consultada em 19/11/2026. Se uma instância aberta ainda exibir o tema anterior, reinicie
+o Streamlit na pasta do projeto e atualize o navegador.
+
+---
+
 ## 🛠️ Tecnologias Utilizadas
 
 | Tecnologia | Uso no projeto |
@@ -183,6 +205,7 @@ As dependências principais estão em `requirements.txt`. O arquivo
 
 ```text
 Desafio-06-Agentes-IA-Gestao-Diarias/
+├── .streamlit/config.toml       # Paleta visual da SEMA-MT
 ├── agente/                      # Agente, instruções e contrato Pydantic
 ├── ferramentas/                 # Cadastro, histórico, cálculos e orçamento
 ├── seguranca/                    # Filtro de dados pessoais e barreiras

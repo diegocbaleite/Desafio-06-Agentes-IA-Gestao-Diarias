@@ -1,0 +1,50 @@
+# Paleta consultada no portal da SEMA-MT em 19/11/2026:
+# https://www.sema.mt.gov.br/site/templates/padraogoverno01/css/template-azul.css
+[theme]
+base = "light"
+primaryColor = "#21307A"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#EEEFF2"
+textColor = "#495057"
+linkColor = "#1659BF"
+borderColor = "#DEE2E6"
+codeBackgroundColor = "#EEEFF2"
+codeTextColor = "#21307A"
+font = "sans-serif"
+baseRadius = "0.5rem"
+buttonRadius = "0.5rem"
+showWidgetBorder = true
+showSidebarBorder = true
+paddingTop = "1.5rem"
+paddingBottom = "2rem"
+headingFontSizes = ["30px", "25px", "21px", "18px", "16px", "14px"]
+metricValueFontSize = "2rem"
+blueColor = "#228BE6"
+blueTextColor = "#21307A"
+blueBackgroundColor = "#CDE1FC"
+greenColor = "#2E7D32"
+greenTextColor = "#1B5E20"
+greenBackgroundColor = "#E8F3EE"
+orangeColor = "#B76E00"
+orangeTextColor = "#8A5A00"
+orangeBackgroundColor = "#FFF4DC"
+redColor = "#B3261E"
+redTextColor = "#9B1C1C"
+redBackgroundColor = "#FDECEC"
+dataframeHeaderBackgroundColor = "#21307A"
+dataframeHeaderTextColor = "#FFFFFF"
+dataframeBorderColor = "#DEE2E6"
+chartCategoricalColors = ["#21307A", "#228BE6", "#1659BF", "#2E7D32", "#B76E00", "#B3261E"]
+
+[theme.sidebar]
+backgroundColor = "#21307A"
+secondaryBackgroundColor = "#20307A"
+textColor = "#FFFFFF"
+primaryColor = "#228BE6"
+linkColor = "#FFFFFF"
+borderColor = "#3E67B1"
+codeBackgroundColor = "#20307A"
+codeTextColor = "#FFFFFF"
+blueTextColor = "#FFFFFF"
+blueBackgroundColor = "#3E67B1"
+paddingTop = "1.5rem"

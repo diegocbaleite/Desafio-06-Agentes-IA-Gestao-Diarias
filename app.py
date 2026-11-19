@@ -23,32 +23,7 @@ from seguranca import filtro_pii
 
 st.set_page_config(page_title="Instrução de Diárias · SEMA-MT", page_icon="🌿", layout="wide")
 
-CSS = """
-<style>
-:root { --verde:#0b5d3b; --verde-claro:#e8f3ee; --ambar:#8a5a00; --ambar-claro:#fff4dc;
-        --vermelho:#9b1c1c; --vermelho-claro:#fdecec; --azul:#1e4e8c; --azul-claro:#e9f0fa; }
-.block-container { padding-top: 1.6rem; max-width: 1280px; }
-.cabecalho { background: linear-gradient(90deg, #0b5d3b, #13794f); color: #fff; padding: 18px 24px;
-             border-radius: 12px; margin-bottom: 18px; }
-.cabecalho h1 { color:#fff; font-size: 1.55rem; margin: 0; }
-.cabecalho p { margin: 4px 0 0 0; opacity: .92; font-size: .95rem; }
-.cartao { border: 1px solid #d9e2dc; border-radius: 10px; padding: 14px 16px; background: #fff; height: 100%; }
-.cartao .rotulo { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #5b6b62; }
-.cartao .valor { font-size: 1.5rem; font-weight: 700; color: #1d2b23; }
-.selo { display:inline-block; padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: .9rem; }
-.selo-apto { background: var(--verde-claro); color: var(--verde); border: 1px solid #9fd0b8; }
-.selo-diligencia { background: var(--ambar-claro); color: var(--ambar); border: 1px solid #f0cf8a; }
-.selo-nao { background: var(--vermelho-claro); color: var(--vermelho); border: 1px solid #f2b4b4; }
-.agente { border-left: 5px solid var(--azul); background: var(--azul-claro); padding: 12px 16px; border-radius: 8px; }
-.humano { border-left: 5px solid var(--verde); background: var(--verde-claro); padding: 12px 16px; border-radius: 8px; }
-.aviso-sim { background: #fff4dc; border: 1px dashed #c98a00; padding: 8px 12px; border-radius: 8px; font-size: .9rem; }
-@media (prefers-color-scheme: dark) {
-  .cartao { background: #1b211e; border-color: #33403a; }
-  .cartao .valor { color: #eef5f0; } .cartao .rotulo { color: #a9b8af; }
-}
-</style>
-"""
-st.markdown(CSS, unsafe_allow_html=True)
+# A identidade visual é configurada em .streamlit/config.toml.
 
 ROTULOS_FERRAMENTA = {
     "consultar_servidor": "Consultando o cadastro funcional",
@@ -56,9 +31,9 @@ ROTULOS_FERRAMENTA = {
     "calcular_diarias": "Calculando quantidade, valor, antecedência e limite mensal",
     "consultar_saldo_diarias": "Consultando o saldo da dotação da unidade",
 }
-ROTULOS_REC = {"apto_para_autorizacao": ("Apto para autorização", "selo-apto"),
-               "diligencia": ("Diligência", "selo-diligencia"),
-               "nao_recomendado": ("Não recomendado", "selo-nao")}
+ROTULOS_REC = {"apto_para_autorizacao": ("Apto para autorização", "green"),
+               "diligencia": ("Diligência", "orange"),
+               "nao_recomendado": ("Não recomendado", "red")}
 ENCAMINHAMENTOS = {"apto_para_autorizacao": "Apto para autorização — segue ao ordenador",
                    "diligencia": "Diligência — devolver ao solicitante",
                    "nao_recomendado": "Não recomendado — segue ao ordenador com impedimento",
@@ -104,7 +79,7 @@ estado.setdefault("pedido_atual", next(iter(PEDIDOS)))
 # ------------------------------------------------------------------ barra lateral
 
 with st.sidebar:
-    st.markdown("### 🌿 SEMA-MT")
+    st.markdown("### :material/eco: SEMA-MT")
     st.caption("Coordenadoria de Diárias e Passagens")
     pagina = st.radio("Navegação", ["Painel", "Análise de pedidos", "Conferência humana", "Diligências",
                                     "Memória e LGPD", "Resultados e auditoria"], label_visibility="collapsed")
@@ -124,25 +99,24 @@ with st.sidebar:
 # Cada análise pertence ao mesmo modo que o banco em que foi registrada.
 estado.resultados = estado.resultados_por_modo.setdefault(modo, {})
 
-st.markdown(
-    "<div class='cabecalho'><h1>Instrução de Pedidos de Diárias</h1>"
-    "<p>Agente Agno de apoio à conferência · IN SEMA nº 07/2026 (hipotética) · "
-    "a decisão pertence exclusivamente ao ordenador de despesa</p></div>", unsafe_allow_html=True)
+with st.container(border=True):
+    st.caption("SEMA-MT · COORDENADORIA DE DIÁRIAS E PASSAGENS")
+    st.title(":blue[Instrução de Pedidos de Diárias]")
+    st.caption("Agente Agno de apoio à conferência · IN SEMA nº 07/2026 (hipotética) · "
+               "a decisão pertence exclusivamente ao ordenador de despesa")
 if modo == "simulador":
-    st.markdown("<div class='aviso-sim'>⚠️ <b>Modo demonstração:</b> as instruções são produzidas por um "
-                "simulador local da API, para exercitar ferramentas, barreira, memória e eliminação sem chave. "
-                "Não representam o comportamento do modelo nem servem como medição.</div>",
-                unsafe_allow_html=True)
+    st.warning("**Modo demonstração:** as instruções são produzidas por um simulador local da API, "
+               "para exercitar ferramentas, barreira, memória e eliminação sem chave. "
+               "Não representam o comportamento do modelo nem servem como medição.")
 
 
 def cartao(rotulo: str, valor) -> None:
-    st.markdown(f"<div class='cartao'><div class='rotulo'>{rotulo}</div><div class='valor'>{valor}</div></div>",
-                unsafe_allow_html=True)
+    st.metric(rotulo, valor, border=True, height="stretch")
 
 
-def selo(recomendacao: str | None) -> str:
-    texto, classe = ROTULOS_REC.get(recomendacao, ("Sem instrução verificada", "selo-nao"))
-    return f"<span class='selo {classe}'>{texto}</span>"
+def selo(recomendacao: str | None) -> None:
+    texto, cor = ROTULOS_REC.get(recomendacao, ("Sem instrução verificada", "red"))
+    st.badge(texto, color=cor)
 
 
 def moeda(v) -> str:
@@ -220,7 +194,7 @@ def pagina_painel() -> None:
         r = estado.resultados.get(n, {}).get("resultado")
         st.markdown(f"**{n}** — {PEDIDOS[n]['nome']}")
         if r:
-            st.markdown(selo((r.get("instrucao") or {}).get("recomendacao")), unsafe_allow_html=True)
+            selo((r.get("instrucao") or {}).get("recomendacao"))
             st.caption(f"Sessão `{r['session_id']}` · user_id `{r['user_id']}` · {r['turno']}")
         else:
             st.caption("Ainda não analisado nesta sessão da aplicação.")
@@ -273,8 +247,9 @@ def mostrar_resultado(r: dict) -> None:
     inst = r["instrucao"]
     topo = st.columns([2, 1, 1, 1])
     with topo[0]:
-        st.markdown("<div class='agente'><b>Recomendação do agente</b> (sugestão, não decisão)<br>"
-                    f"{selo(inst['recomendacao'])}</div>", unsafe_allow_html=True)
+        with st.container(border=True):
+            st.markdown("**:blue[Recomendação do agente]** (sugestão, não decisão)")
+            selo(inst["recomendacao"])
     topo[1].metric("Quantidade de diárias", "—" if inst["quantidade_diarias"] is None else
                    f"{inst['quantidade_diarias']:g}".replace(".", ","))
     topo[2].metric("Valor total", moeda(inst["valor_total"]))
@@ -331,15 +306,20 @@ def pagina_conferencia() -> None:
         "manualmente pelo servidor. À consideração do ordenador de despesa.")
     col_ag, col_hum = st.columns(2)
     with col_ag:
-        st.markdown("<div class='agente'><b>🤖 Recomendação do agente</b><br>" + (selo(rec) if inst else
-                    "<span class='selo selo-nao'>Recusada pela barreira — análise manual</span>") + "</div>",
-                    unsafe_allow_html=True)
+        with st.container(border=True):
+            st.markdown("**:blue[Recomendação do agente]**")
+            if inst:
+                selo(rec)
+            else:
+                st.badge("Recusada pela barreira — análise manual", color="red")
         if inst:
             st.caption(f"Valor {moeda(inst['valor_total'])} · autorização superior: "
                        f"{'exigida' if inst['exige_autorizacao_superior'] else 'não'}")
     with col_hum:
-        st.markdown("<div class='humano'><b>👤 Decisão do conferente</b><br>Registro humano, ao lado da "
-                    "sugestão. A decisão final continua com o ordenador de despesa.</div>", unsafe_allow_html=True)
+        with st.container(border=True):
+            st.markdown("**:green[Decisão do conferente]**")
+            st.caption("Registro humano, ao lado da sugestão. "
+                       "A decisão final continua com o ordenador de despesa.")
     with st.form(f"conferencia_{modo}_{numero}"):
         minuta = st.text_area("Minuta do despacho (editável)", minuta_original, height=180)
         opcoes = list(ENCAMINHAMENTOS)
