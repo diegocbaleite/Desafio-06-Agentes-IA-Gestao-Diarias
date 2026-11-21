@@ -236,3 +236,17 @@ pessoa confere e registra; o ordenador decide.** Nenhuma ação do agente altera
 4. A responsabilidade legal é do ordenador (art. 10); a instrução é subsídio.
 5. O registro da conferência (recomendação × decisão, com justificativa) mede, com o uso, a
    taxa de discordância — é ela que poderá, no futuro, justificar mais ou menos autonomia.
+
+## 13. Confronto com a versão entregue — 21/11/2026
+
+**Base de requisitos:** enunciado oficial *Desafio 01 — Instrução de Pedidos de Diárias* (Aulas 01 a 07); o nome do repositório é **Desafio 06**. O desenho e as estimativas desta página são preservados como decisão de arquitetura **anterior** à medição, conforme exige a Etapa 1.
+
+**Fluxo efetivamente implementado:** `app.py` chama `instruir()` em `agente/agente_diarias.py`, com `session_id=numero_pedido` e matrícula como identidade inicial; `SqliteDbProtegido` sanitiza novas gravações; `seguranca/barreiras.py` valida argumentos, fontes, critérios, números e status; `agente/minuta.py` produz a minuta factual após aprovação; `memoria/persistencia.py` registra análises e conferências em banco administrativo separado. O ordenador de despesa decide fora da aplicação.
+
+**Comparação real e simulada:** a bateria histórica de **19/11/2026**, com três rodadas de 14 cenários em cada configuração, resultou em **41/42** casos corretos com ferramentas paralelas desligadas e **42/42** ligadas. Não houve instrução errada entregue. A métrica `max_ferramentas_simultaneas=1` em ambas indica que o modelo **não executou várias ferramentas na mesma chamada** na bateria real; a hipótese de quatro passos segue apenas uma hipótese de desenho/simulador. A medição real não autoriza inferir ganho de paralelismo.
+
+**Correções finais:** F1–F8 descritas em [CORRECOES_AUDITORIA.md](docs/CORRECOES_AUDITORIA.md), com [131 testes locais aprovados](resultados/evidencias/pytest_correcao_20261121.txt), sem repetir integralmente a bateria paga. A inspeção manual posterior com API real está no [índice dos 29 prints](resultados/INDICE_EVIDENCIAS_API_REAL.md).
+
+**Memória e LGPD:** a [evidência de eliminação da sessão 0112](resultados/evidencias/eliminacao_api_207418_20261121155444.json) verificou ausência lógica de ocorrências da titular no banco de trabalho do agente; a eliminação **não** pretende apagar backups nem registros administrativos. A retenção de 30 dias é **proposta, ainda sem expurgo automático**; a autenticação institucional não é parte comprovada do protótipo.
+
+O quadro PEAS, a confiabilidade composta, os custos por passos e o quadrante de autonomia permanecem inalterados, para não ajustar retrospectivamente o desenho às medições.
