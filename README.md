@@ -224,10 +224,12 @@ Desafio-06-Agentes-IA-Gestao-Diarias/
 ├── exemplos/                     # Gerador e dados de referência do exercício
 ├── testes/                       # Testes unitários, de integração e regressão
 ├── resultados/
-│   ├── evidencias/               # Evidências dos testes e da interface
+│   ├── evidencias/               # JSONs e logs de testes e eliminação
+│   ├── evidencias-manuais/       # 22 capturas anteriores + api-real-20261121 (29 PNGs)
 │   ├── historico/                # Resultados anteriores preservados
 │   └── simulador/                # Saídas identificadas como simulação
 ├── docs/roteiro_apresentacao.md
+├── docs/ESTRUTURA_PROJETO.md   # Inventário da estrutura real do repositório
 ├── app.py
 ├── config.py
 ├── desenho.md
@@ -359,9 +361,11 @@ São 84 testes existentes e 14 regressões acrescentadas na revisão. Esses test
 fazem chamadas à API real. A conferência das seis páginas e do fluxo da interface
 também foi realizada com `AppTest`.
 
-Esse resultado é histórico. Em 21/11/2026 foram acrescentadas regressões para os achados
-da auditoria final, com validação somente local. A contagem atual e os resultados estão
-em [correcao_auditoria_20261121.json](resultados/evidencias/correcao_auditoria_20261121.json).
+Esse resultado é histórico. Após as correções F1–F8, em **21/11/2026**, o registro mais recente
+da suíte completa é **131 testes aprovados em 38,20 s, sem falhas**; sua execução foi local,
+com simulador/AppTest e **sem chamada paga à API**. Consulte o
+[log Pytest](resultados/evidencias/pytest_correcao_20261121.txt) e o
+[resumo de regressões](resultados/evidencias/correcao_auditoria_20261121.json).
 As mudanças e limitações estão em [CORRECOES_AUDITORIA.md](docs/CORRECOES_AUDITORIA.md).
 
 Evidências históricas: [testes](resultados/evidencias/pytest_revisao.txt) e
@@ -371,8 +375,10 @@ Evidências históricas: [testes](resultados/evidencias/pytest_revisao.txt) e
 
 ## 📊 Medições com a API Real
 
-A bateria executou os doze pedidos e as duas complementações em três rodadas para
-cada configuração de chamadas paralelas.
+A **bateria histórica de 19/11/2026** executou os doze pedidos e as duas complementações
+em três rodadas para cada configuração de chamadas paralelas. Ela antecede as correções
+F1–F8; os prints da API real de 21/11/2026 demonstram cenários manuais posteriores,
+**não** a repetição integral das 84 avaliações.
 
 | Configuração | Acertos | Recusas da barreira | Instruções erradas entregues |
 |---|---:|---:|---:|
@@ -460,6 +466,9 @@ publicar o código no repositório.
 - [Relatório de medições gerado a partir dos resultados](resultados/relatorio_medicoes.md)
 - [Rastreabilidade dos requisitos](requisitos_rastreabilidade.md)
 - [Roteiro de apresentação](docs/roteiro_apresentacao.md)
+- [Mapa completo da estrutura do repositório](docs/ESTRUTURA_PROJETO.md)
+- [Índice dos 29 prints da API real (21/11)](resultados/INDICE_EVIDENCIAS_API_REAL.md)
+- [Evidência de eliminação no banco de trabalho](resultados/evidencias/eliminacao_api_207418_20261121155444.json)
 
 Entre as limitações registradas estão o expurgo automático por prazo ainda não
 implementado, o julgamento textual de urgência e a possível mistura de pedidos quando
@@ -472,3 +481,20 @@ se provocam identificadores de sessão incorretos. A conferência humana permane
 - **Diego Assunção Leite**
 
 **FIC_DEV — Programador de Sistemas com IA — SECITECI / Escola Técnica Estadual de Cuiabá — 2026.**
+
+## Atualização de entrega — 21/11/2026
+
+O **enunciado oficial disponibilizado para esta revisão** é *Desafio 01 — Instrução de Pedidos de Diárias* (Aulas 01 a 07, oito páginas). **Desafio 06** é o nome adotado para o repositório; não representa outro enunciado. O documento oficial foi consultado externamente ao repositório e não é redistribuído aqui.
+
+**Validação separada por natureza e data:**
+
+| Natureza | Data | Evidência | Leitura correta |
+|---|---|---|---|
+| Bateria histórica com API real | 19/11/2026 | [Resultados com chamadas paralelas desligadas](resultados/execucao_casos_paralelas_desligadas.json), [ligadas](resultados/execucao_casos_paralelas_ligadas.json) | 83 de 84 casos coincidiram com o gabarito; 1 recusa segura; 0 instruções incorretas entregues |
+| Regressões e simulador após correções F1–F8 | 21/11/2026 | [Log Pytest](resultados/evidencias/pytest_correcao_20261121.txt), [resumo](resultados/evidencias/correcao_auditoria_20261121.json) | **131 testes aprovados**, sem repetir a bateria completa paga |
+| Validação manual posterior com API real | 21/11/2026 | [Índice de 29 capturas](resultados/INDICE_EVIDENCIAS_API_REAL.md), [capturas](resultados/evidencias-manuais/api-real-20261121/) | Pedidos 0101/0107/0111/0112, complementações, conferência, memória e eliminação observados na interface |
+| Eliminação confirmada | 21/11/2026 | [Evidência JSON](resultados/evidencias/eliminacao_api_207418_20261121155444.json) | Sessão 0112 eliminada do banco **de trabalho**; 3 outras sessões preservadas; não abrange backups |
+
+**Entregáveis oficiais:** [desenho](desenho.md), [código](agente/agente_diarias.py), [resultados](resultados/), [relatório](relatorio.md) e [LEIA-ME](LEIA-ME.md). Para localizar cada módulo real, consulte o [mapa completo da estrutura](docs/ESTRUTURA_PROJETO.md) e a [matriz de rastreabilidade](requisitos_rastreabilidade.md).
+
+**Ressalvas:** a retenção automática de 30 dias não foi implementada; a eliminação não abrange os backups nem os registros administrativos; a interface de demonstração não comprova autenticação institucional ou autorização por papéis; o julgamento de urgência continua submetido à conferência humana. A documentação e as evidências representam um **protótipo acadêmico**, não uma autorização para uso em produção.
