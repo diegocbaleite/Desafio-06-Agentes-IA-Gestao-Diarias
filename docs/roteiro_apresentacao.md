@@ -66,3 +66,18 @@ de despesa pública com guarda legal; só o banco de trabalho do agente é elimi
 **O que não funciona?** Sem chave, não há medição do modelo. F4c (identificador derivado da
 unidade) não é detectado pela barreira quando a instrução sai coerente. Urgência descrita de
 forma convincente, mas falsa, passa — por isso o humano.
+
+## Evidências atualizadas para apresentação em 21/11/2026
+
+- **Aula/desafio oficial:** *Desafio 01 — Instrução de Pedidos de Diárias* (Aulas 01–07). O repositório se chama **Desafio 06**.
+- **Código real:** fluxo `app.py` → `agente/agente_diarias.py` → `ferramentas/` → `seguranca/barreiras.py` → `agente/minuta.py` → conferência humana.
+- **Primeira demonstração (0101):** [prints 02 e 03](../resultados/INDICE_EVIDENCIAS_API_REAL.md) — recomendação apta, R$ 980,00 e quatro consultas.
+- **Segurança (0107):** prints 04/05 — instrução embutida ignorada, recomendação não favorável.
+- **Diligência (0111):** prints 07–11 — retorno incompleto, depois complementação na mesma sessão.
+- **Matrícula corrigida (0112):** prints 12–17 — consulta posterior com matrícula corrigida, sem reutilizar a incorreta.
+- **Conferência e persistência:** prints 18–25 — justificativa e identificação obrigatórias, registro administrativo preservado.
+- **Eliminação:** prints 26–29 e [JSON da eliminação](../resultados/evidencias/eliminacao_api_207418_20261121155444.json); **não repetir a exclusão na apresentação**.
+- **Testes:** [131 aprovações locais](../resultados/evidencias/pytest_correcao_20261121.txt) e **83/84** corretos na bateria histórica de 19/11, com uma recusa segura. Os testes locais corrigidos não repetiram a bateria paga.
+- **Ressalvas a declarar:** LGPD limitada ao banco de trabalho, 30 dias ainda propostos (sem expurgo automático), ausência de autenticação institucional demonstrada, julgamento humano indispensável.
+
+**Link de orientação:** [estrutura completa](ESTRUTURA_PROJETO.md). Para uma exposição de 12–14 minutos, mostre a evidência histórica em lugar de executar novos testes destrutivos ou pagos.
