@@ -109,6 +109,12 @@ class ResultadoBarreira:
     motivos: list[str] = field(default_factory=list)
     alertas_codigo: list[str] = field(default_factory=list)
 
+    def __post_init__(self):
+        # Argumentos e campos recusados são dados não confiáveis; seus valores não
+        # podem vazar por uma mensagem de diagnóstico, mesmo nos retornos antecipados.
+        self.motivos = filtro_pii.mascarar_estrutura(self.motivos)
+        self.alertas_codigo = filtro_pii.mascarar_estrutura(self.alertas_codigo)
+
 
 def _resultado_json(consulta: dict) -> dict:
     try:

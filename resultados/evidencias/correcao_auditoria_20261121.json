@@ -1,0 +1,51 @@
+{
+  "data": "2026-11-21",
+  "exercicio": "Desafio 01 — Instrução de Pedidos de Diárias",
+  "repositorio": "Desafio 06 — Agentes de IA para Gestão de Diárias",
+  "modo": "validacao local com simulador e AppTest",
+  "novas_chamadas_api_real": 0,
+  "python": "3.14.7",
+  "pytest": {
+    "testes": 131,
+    "aprovados": 131,
+    "falhas": 0,
+    "erros": 0,
+    "ignorados": 0,
+    "segundos": 38.205,
+    "regressoes_adicionadas": 33,
+    "exit_code": 0,
+    "log": "pytest_correcao_20261121.txt"
+  },
+  "casos_avaliador_externo": {
+    "paralelas_desligadas": {"executados": 14, "corretos": 14},
+    "paralelas_ligadas": {"executados": 14, "corretos": 14},
+    "incluidos_na_suite_pytest": true,
+    "agente_reconstruido_antes_das_complementacoes": true
+  },
+  "regressoes": {
+    "F1": "identidade incorreta bloqueada e registros sem vinculo preservados",
+    "F2": "minuta factual gerada a partir dos campos verificados",
+    "F3": "formatos bancarios com pontuacao mascarados antes do endpoint e do banco",
+    "F4": "respostas recusadas, erros, metadados, memorias, diagnosticos e logs sanitizados",
+    "F5": "UFs inexistentes recusadas",
+    "F6_F8": "documentacao corrigida, sem repetir medicoes reais historicas"
+  },
+  "interface": {
+    "metodo": "streamlit.testing.v1.AppTest",
+    "paginas_sem_excecao": 6,
+    "complementacoes_corretas": 2,
+    "divergencia_sem_justificativa_bloqueada": true,
+    "minuta_editada_e_conferencia_preservadas": true,
+    "eliminacoes_verificadas": 2,
+    "registro_administrativo_preservado": true,
+    "inspecao_visual_interativa": "nao executada"
+  },
+  "dependencias": {"pip_check": "No broken requirements found."},
+  "limites": [
+    "Enunciado original e rubrica ausentes no workspace",
+    "Expurgo automatico de 30 dias nao implementado",
+    "Bancos originais e medicoes historicas nao foram limpos ou substituidos",
+    "Instalacao independente em outro computador nao executada",
+    "Dados e resultados do simulador nao medem o comportamento da API real"
+  ]
+}

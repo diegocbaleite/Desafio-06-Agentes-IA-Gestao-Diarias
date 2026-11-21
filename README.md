@@ -92,6 +92,9 @@ com os argumentos utilizados e a identificação da fonte e da regra aplicada.
   A resposta só segue à tela após a conferência do status e de `verificar_instrucao()`,
   em `seguranca/barreiras.py`.
 
+A minuta factual entregue ao conferente é gerada em `agente/minuta.py`, a partir dos
+campos verificados. O rascunho livre do modelo não é utilizado como documento final.
+
 A configuração padrão utiliza `tool_call_limit=6`, `num_history_runs=3`,
 `parallel_tool_calls=False`, `reasoning_effort="none"` e `telemetry=False`.
 
@@ -106,6 +109,10 @@ A configuração padrão utiliza `tool_call_limit=6`, `num_history_runs=3`,
 
 No caso de matrícula corrigida, a eliminação também procura referências gravadas sob
 outro `user_id` e exige a verificação e a confirmação do vínculo antes de apagar a sessão.
+O seletor de titulares usa o cadastro funcional. Mesmo sob o `user_id` informado, uma
+sessão ou memória sem vínculo comprovado é preservada para análise manual.
+O adaptador `SqliteDbProtegido` mascara novas gravações, inclusive respostas recusadas
+e erros; os motivos de recusa e os registros administrativos também são sanitizados.
 
 ### 🔹 Formulário de conferência humana
 
@@ -352,7 +359,12 @@ São 84 testes existentes e 14 regressões acrescentadas na revisão. Esses test
 fazem chamadas à API real. A conferência das seis páginas e do fluxo da interface
 também foi realizada com `AppTest`.
 
-Evidências: [testes](resultados/evidencias/pytest_revisao.txt) e
+Esse resultado é histórico. Em 21/11/2026 foram acrescentadas regressões para os achados
+da auditoria final, com validação somente local. A contagem atual e os resultados estão
+em [correcao_auditoria_20261121.json](resultados/evidencias/correcao_auditoria_20261121.json).
+As mudanças e limitações estão em [CORRECOES_AUDITORIA.md](docs/CORRECOES_AUDITORIA.md).
+
+Evidências históricas: [testes](resultados/evidencias/pytest_revisao.txt) e
 [interface](resultados/evidencias/interface_revisao.json).
 
 ---

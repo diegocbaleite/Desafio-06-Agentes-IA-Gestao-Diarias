@@ -21,6 +21,7 @@ from pathlib import Path
 from typing import Iterator
 
 import config
+from seguranca.filtro_pii import mascarar_estrutura, mascarar_texto
 
 ESQUEMA = """
 CREATE TABLE IF NOT EXISTS analises (
@@ -60,19 +61,20 @@ def _agora() -> str:
 
 def registrar_analise(resultado, db_file: Path | str | None = None) -> int:
     """Grava o resultado de `instruir` (aprovado ou recusado). Devolve o id da análise."""
-    inst = resultado.instrucao or {}
-    consultas = [{"ferramenta": c["ferramenta"], "argumentos": c["argumentos"]} for c in resultado.consultas]
+    dados = mascarar_estrutura(resultado.to_dict())
+    inst = dados["instrucao"] or {}
+    consultas = [{"ferramenta": c["ferramenta"], "argumentos": c["argumentos"]} for c in dados["consultas"]]
     with _conectar(db_file) as con:
         cur = con.execute(
             "INSERT INTO analises (numero, turno, situacao, recomendacao, quantidade_diarias, valor_total,"
             " motivos_recusa, alertas, consultas, metricas, modelo, registrado_em)"
             " VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
-            (resultado.numero, resultado.turno, resultado.situacao, inst.get("recomendacao"),
+            (dados["numero"], dados["turno"], dados["situacao"], inst.get("recomendacao"),
              inst.get("quantidade_diarias"), inst.get("valor_total"),
-             json.dumps(resultado.motivos_recusa, ensure_ascii=False),
-             json.dumps(inst.get("alertas", []) + resultado.alertas_aplicacao, ensure_ascii=False),
-             json.dumps(consultas, ensure_ascii=False), json.dumps(resultado.metricas),
-             resultado.modelo, _agora()))
+             json.dumps(dados["motivos_recusa"], ensure_ascii=False),
+             json.dumps(inst.get("alertas", []) + dados["alertas_aplicacao"], ensure_ascii=False),
+             json.dumps(consultas, ensure_ascii=False), json.dumps(dados["metricas"]),
+             dados["modelo"], _agora()))
         return int(cur.lastrowid)
 
 
@@ -90,6 +92,8 @@ def registrar_conferencia(numero: str, analise_id: int | None, recomendacao_agen
                          "ou quando não houve instrução verificada.")
     if not conferente.strip():
         raise ValueError("Identifique o servidor conferente.")
+    justificativa, minuta_final, minuta_original, conferente = (
+        mascarar_texto(v)[0] for v in (justificativa, minuta_final, minuta_original or "", conferente))
     with _conectar(db_file) as con:
         cur = con.execute(
             "INSERT INTO conferencias (numero, analise_id, recomendacao_agente, encaminhamento_servidor,"

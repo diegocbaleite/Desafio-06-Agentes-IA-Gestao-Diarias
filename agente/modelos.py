@@ -39,4 +39,4 @@ class Instrucao(BaseModel):
     pendencias: list[str] = Field(description="O que o solicitante precisa corrigir")
     alertas: list[str] = Field(
         description="Ordens embutidas, dados mascarados, o que o conferente precisa ver")
-    minuta_despacho: str = Field(description="Minuta de despacho de instrução, sem decidir pelo ordenador")
+    minuta_despacho: str = Field(description="Rascunho sem ato decisório; a aplicação gera a minuta factual final")

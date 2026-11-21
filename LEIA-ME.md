@@ -7,27 +7,28 @@ ordenador de despesa.
 
 ## 1. Instalação
 
-Neste computador, use a `.venv` já instalada na pasta do projeto. No PowerShell:
+Abra o PowerShell na raiz do repositório clonado, onde estão `app.py` e
+`requirements.lock.txt`. O ambiente de referência é Python 3.14.7 no Windows:
 
 ```powershell
-cd "C:\Users\Diego\Downloads\desafio-01-diarias"
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.lock.txt
 .\.venv\Scripts\python.exe -m streamlit run app.py
 ```
 
-Os comandos usam diretamente o Python da `.venv`; não dependem do atalho `python` do
-Windows nem da ativação do PowerShell. Para recriar o ambiente neste computador:
+Depois da criação, os comandos usam diretamente o Python da `.venv` e não dependem
+da ativação do PowerShell. Confira a versão do Python antes de criar o ambiente:
 
 ```powershell
-& "$env:LOCALAPPDATA\Python\pythoncore-3.14-64\python.exe" -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+python --version
 ```
 
-Em outro computador, crie a `.venv` com o Python 3.10+ disponível. Crie um ambiente novo
+Em outro computador, use preferencialmente Python 3.14.7. Crie um ambiente novo
 após mover o projeto: ambientes virtuais contêm comandos que usam caminhos absolutos.
 
-Python 3.10 ou superior (verificado em 3.14.7). O extra `sqlalchemy[asyncio]` é obrigatório:
-sem ele o `SqliteDb` falha por falta do `greenlet`.
+As dependências fixadas exigem no mínimo Python 3.12, mas esta combinação só foi
+validada em 3.14.7; isso não comprova instalação em outras versões ou plataformas.
+O extra `sqlalchemy[asyncio]` é obrigatório: sem ele o `SqliteDb` falha por falta do `greenlet`.
 
 `requirements.lock.txt` registra as 73 dependências instaladas e verificadas nesta revisão.
 Para reproduzir essas versões, use `-r requirements.lock.txt` na instalação com o Python
@@ -50,7 +51,7 @@ ou `MODELO_LLM` (ex.: `openai/gpt-5.6-luna`; padrão `gpt-5.6-luna`), `TOOL_CALL
 | Objetivo | Comando | Precisa de chave |
 |---|---|---|
 | Ferramentas sem agente (evidência da Etapa 2) | `python -m ferramentas` | não |
-| Testes automatizados (98) | `python -m pytest` | não |
+| Testes automatizados (suíte atual) | `python -m pytest` | não |
 | Formulário de conferência | `streamlit run app.py` | sim (ou modo demonstração) |
 | 12 pedidos + 2 complementações, 3 rodadas | `python -m avaliacao.executar_casos` | sim |
 | O mesmo com paralelas ligadas | `python -m avaliacao.executar_casos --paralelas` | sim |
@@ -98,7 +99,7 @@ desafio-01-diarias/
 │   │                           estimar_tokens, gerar_relatorio, comparar_gabarito, execucao
 │   └── externo/gabarito.json   lido SOMENTE por comparar_gabarito.py
 ├── simulador/                  servidor local que imita /v1/chat/completions (só testes/demonstração)
-├── testes/                     98 testes Pytest, nenhum usa chave
+├── testes/                     testes Pytest, incluindo regressões da auditoria final
 ├── dados/                      acervo de exemplos/dados (cópia) + gerador original
 ├── resultados/                 medições (API real), simulador/ e evidencias/
 ├── docs/roteiro_apresentacao.md
@@ -117,6 +118,13 @@ desafio-01-diarias/
   (`criterio_* = nao_atende`) e argumento inválido.
 - **Barreira no código**, não no prompt: lê `RunOutput.tools` e confere argumentos e números.
 - **Dois bancos:** o do agente (eliminável) e o administrativo (guarda legal).
+- **Escrita protegida:** `SqliteDbProtegido` mascara cópias antes de gravar sessões,
+  execuções, memórias e resultados de ferramentas, inclusive nos caminhos de erro.
+  Os diagnósticos e registros administrativos também são sanitizados.
+- **Minuta factual no Python:** depois da barreira, quantidade, valor, recomendação e
+  autorização são redigidos a partir dos campos verificados; o rascunho do modelo não é entregue.
+- **Titular validado:** o seletor usa o cadastro funcional. Nome, matrícula e vínculo
+  do pedido são conferidos antes da eliminação; `user_id` sozinho não prova titularidade.
 - **Interface isolada por modo:** resultados, formulários e confirmações de eliminação
   da demonstração não são reutilizados na API real.
 - **Bancos de avaliação separados:** `bancos/simulador/` não sobrescreve bancos de medições
@@ -193,4 +201,7 @@ resultado da ferramenta correspondente.
 
 ## 8. Evidências da revisão
 
-98 testes locais aprovados, fluxo da interface verificado e medições reais nas duas configurações de paralelismo, nas três configurações de memória e nos cenários de falha. Consulte `relatorio.md` e `resultados/relatorio_medicoes.md`.
+Na revisão histórica de 19/11/2026: 98 testes locais aprovados e medições reais nas duas
+configurações de paralelismo, nas três configurações de memória e nos cenários de falha.
+As correções posteriores e sua validação sem API paga estão em
+`docs/CORRECOES_AUDITORIA.md`; esses resultados não substituem as medições históricas.

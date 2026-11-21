@@ -64,9 +64,9 @@ def calcular_diarias(matricula: str, destino_uf: str, data_pedido: str,
         return json.dumps({**base, "situacao": "argumento_invalido",
                            "mensagem": "Data de retorno anterior à partida."}, ensure_ascii=False)
     uf = (destino_uf or "").strip().upper()
-    if len(uf) != 2 or not uf.isalpha():
+    if uf not in acervo.UFS:
         return json.dumps({**base, "situacao": "argumento_invalido",
-                           "mensagem": "UF deve ter duas letras, como MT."}, ensure_ascii=False)
+                           "mensagem": "Informe uma UF brasileira válida, como MT ou DF."}, ensure_ascii=False)
 
     grupo = servidor["grupo_diaria"]
     qtd = acervo.quantidade_diarias(partida, retorno)

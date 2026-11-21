@@ -15,14 +15,15 @@ from typing import Callable, Literal, Optional
 
 from agno.agent import Agent
 from agno.db.base import SessionType
-from agno.db.sqlite import SqliteDb
 from agno.models.openai import OpenAIChat
 from agno.run.base import RunStatus
 
 import config
 from agente.instrucoes import instrucao_sistema, mensagem_complementacao, mensagem_pedido
 from agente.modelos import Instrucao
+from agente.minuta import redigir_minuta
 from ferramentas import FERRAMENTAS
+from memoria.banco_protegido import SqliteDbProtegido
 from seguranca import filtro_pii
 from seguranca.barreiras import ResultadoBarreira, agora_iso, verificar_instrucao
 
@@ -39,7 +40,7 @@ def _anunciar_ferramenta(function_name: str, function_call: Callable, arguments:
     aviso = _AO_CHAMAR.get(sessao)
     if aviso:
         try:
-            aviso(function_name, dict(arguments))
+            aviso(function_name, filtro_pii.mascarar_estrutura(dict(arguments)))
         except Exception:  # a tela nunca pode derrubar a instrução
             pass
     return function_call(**arguments)
@@ -60,6 +61,7 @@ def construir_agente(memoria: Memoria = "historico", paralelas: bool | None = No
     base_url/api_key: usados apenas pelos testes com o simulador local.
     """
     paralelas = config.PARALLEL_TOOL_CALLS if paralelas is None else paralelas
+    filtro_pii.proteger_logs()
     modelo_llm = OpenAIChat(
         id=modelo or config.MODELO,
         reasoning_effort="none",  # exigido pela família GPT-5.6 com ferramentas (Aula 06, 4.1)
@@ -72,7 +74,7 @@ def construir_agente(memoria: Memoria = "historico", paralelas: bool | None = No
     if memoria != "sem_memoria":
         arquivo = Path(db_file or config.DB_AGENTE)
         arquivo.parent.mkdir(parents=True, exist_ok=True)
-        extras = {"db": SqliteDb(db_file=str(arquivo)), "add_history_to_context": True,
+        extras = {"db": SqliteDbProtegido(db_file=str(arquivo)), "add_history_to_context": True,
                   "num_history_runs": num_history_runs or config.NUM_HISTORY_RUNS}
         if memoria == "historico_usuario":
             extras["update_memory_on_run"] = True
@@ -94,7 +96,7 @@ def construir_agente(memoria: Memoria = "historico", paralelas: bool | None = No
 
 @dataclass
 class ResultadoInstrucao:
-    """O que a tela, o registro e o avaliador recebem. Só `instrucao` vem do modelo."""
+    """Resultado verificado: campos do modelo e minuta factual redigida pela aplicação."""
 
     numero: str
     turno: Literal["pedido", "complementacao"]
@@ -210,7 +212,7 @@ def instruir(agente: Agent, pedido: dict, complementacao: dict | None = None,
         _AO_CHAMAR.pop(sid, None)
 
     resultado.metricas = _metricas(resposta, time.perf_counter() - inicio)
-    resultado.consultas = _consultas(resposta)
+    resultado.consultas = filtro_pii.mascarar_estrutura(_consultas(resposta))
     status = getattr(resposta, "status", None)
     if status != RunStatus.completed:
         # O conteúdo de uma execução com erro é a mensagem da API: não é lido nem exibido.
@@ -234,4 +236,7 @@ def instruir(agente: Agent, pedido: dict, complementacao: dict | None = None,
         return resultado
     resultado.situacao = "aprovada"
     resultado.instrucao = conteudo.model_dump()
+    # A proposta factual entregue ao conferente vem dos campos verificados, não da
+    # redação livre do modelo, que pode contradizer quantidade, valor ou recomendação.
+    resultado.instrucao["minuta_despacho"] = redigir_minuta(conteudo)
     return resultado

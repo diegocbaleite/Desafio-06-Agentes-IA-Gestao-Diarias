@@ -18,17 +18,23 @@ com nenhum padrão — isso é verificado nos testes.
 
 from __future__ import annotations
 
+import json
+import logging
 import re
+import traceback
 
 from agno.guardrails import PIIDetectionGuardrail
 
 # CPF formatado (000.000.000-00) ou com 11 algarismos seguidos, isolados.
 PADRAO_CPF = r"(?<!\d)(?:\d{3}\.\d{3}\.\d{3}-\d{2}|\d{11})(?!\d)"
-# Agência: a palavra "agência"/"ag." seguida do número, com dígito opcional.
-PADRAO_AGENCIA = r"(?i)\bag(?:[êe]ncia|\.)\s*(?:n[º°o]\.?\s*)?(?:banc[áa]ria\s*)?\d{3,5}(?:-[\dxX])?"
+# Separadores usuais de formulários: agência: 1234-5, ag. nº 1234-5, conta = 12345-6.
+_SEPARADOR = r"\s*(?:[:=–—-]\s*)?"
+_NUMERO = r"(?:n[º°o]\.?\s*[:=]?\s*)?"
+PADRAO_AGENCIA = (r"(?i)\bag(?:[êe]ncia\b|\.|\b)(?:\s+banc[áa]ria\b)?" + _SEPARADOR + _NUMERO
+                  + r"\d{3,5}(?:\s*-\s*[\dxX])?(?!\d)")
 # Conta: "conta", "c/c" ou "conta corrente/poupança" seguida do número, com dígito opcional.
-PADRAO_CONTA = (r"(?i)\b(?:conta(?:\s+(?:corrente|poupan[çc]a|banc[áa]ria))?|c/c)\s*"
-                r"(?:n[º°o]\.?\s*)?\d{3,12}(?:-[\dxX])?")
+PADRAO_CONTA = (r"(?i)\b(?:conta(?:\s+(?:corrente|poupan[çc]a|banc[áa]ria))?\b|c/c\b)"
+                + _SEPARADOR + _NUMERO + r"\d{3,12}(?:\s*-\s*[\dxX])?(?!\d)")
 
 PADROES = {"CPF": PADRAO_CPF, "Agência bancária": PADRAO_AGENCIA, "Conta bancária": PADRAO_CONTA}
 _COMPILADOS = {nome: re.compile(p) for nome, p in PADROES.items()}
@@ -76,3 +82,50 @@ def criar_guardrail() -> PIIDetectionGuardrail:
         enable_email_check=True,
         custom_patterns=dict(PADROES),
     )
+
+
+def mascarar_estrutura(valor):
+    """Copia dados serializáveis e mascara textos, inclusive JSON dentro de mensagens.
+
+    Decodificar JSON antes da máscara cobre acentos escapados e preserva sua sintaxe.
+    Números, datas, protocolos e matrículas administrativas permanecem intactos.
+    """
+    if isinstance(valor, str):
+        if valor.lstrip().startswith(("{", "[")):
+            try:
+                dados = json.loads(valor)
+            except (ValueError, TypeError):
+                pass
+            else:
+                seguro = mascarar_estrutura(dados)
+                if seguro != dados:
+                    return json.dumps(seguro, ensure_ascii=False)
+        return mascarar_texto(valor)[0]
+    if isinstance(valor, dict):
+        return {mascarar_texto(k)[0] if isinstance(k, str) else k: mascarar_estrutura(v)
+                for k, v in valor.items()}
+    if isinstance(valor, (list, tuple)):
+        return [mascarar_estrutura(v) for v in valor]
+    return valor
+
+
+class FiltroLogPII(logging.Filter):
+    """Sanitiza a mensagem formatada e exceções antes dos handlers do Agno."""
+
+    def filter(self, record: logging.LogRecord) -> bool:
+        record.msg = mascarar_estrutura(record.getMessage())
+        record.args = ()
+        if record.exc_info:
+            record.exc_text = mascarar_texto("".join(traceback.format_exception(*record.exc_info)))[0]
+            record.exc_info = None
+        elif record.exc_text:
+            record.exc_text = mascarar_texto(record.exc_text)[0]
+        return True
+
+
+def proteger_logs() -> None:
+    """Instala uma única vez o filtro nos loggers usados pelo Agno."""
+    for nome in ("agno", "agno-team", "agno-workflow"):
+        logger = logging.getLogger(nome)
+        if not any(isinstance(f, FiltroLogPII) for f in logger.filters):
+            logger.addFilter(FiltroLogPII())

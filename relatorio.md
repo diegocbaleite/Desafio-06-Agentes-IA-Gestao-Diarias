@@ -1,5 +1,10 @@
 # Relatório do Desafio 01
 
+> **Correções posteriores (21/11/2026):** consulte `docs/CORRECOES_AUDITORIA.md` e
+> `resultados/evidencias/correcao_auditoria_20261121.json`. A nova validação usou somente
+> o simulador. Os números de API real abaixo são históricos e não foram repetidos para
+> essas alterações de código; as métricas não representam a versão corrigida.
+
 Revisão concluída em 19/11/2026 com Python 3.14.7, Agno 3.0.9 e o modelo configurado `gpt-5.6-luna`. Foram executadas três rodadas dos doze pedidos e das duas complementações em cada configuração de chamadas paralelas, as três configurações de memória e os nove cenários de falha. Todos os dados são fictícios: os sete arquivos do acervo foram comparados ao conteúdo reproduzido pelo gerador de semente fixa do exercício.
 
 Os resultados desta seção usam a API real. As simulações ficam em `resultados/simulador/` e demonstram o funcionamento do fluxo. Os tokens são informados pelo provedor; o custo em dólares é calculado com os preços configurados no projeto, não extraído de uma fatura.

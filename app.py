@@ -400,12 +400,14 @@ def pagina_lgpd() -> None:
         st.subheader("Sessões gravadas")
         st.dataframe(pd.DataFrame(verificacao.sessoes(db)), hide_index=True, width="stretch")
     st.subheader("Eliminação dos dados de um titular")
-    titulares = {p["matricula"]: p["nome"] for p in PEDIDOS.values()}
-    titulares.update({"207418": "Carla Regina Souza"})
+    titulares = eliminacao.titulares_cadastrados()
     matricula = st.selectbox("Titular", sorted(titulares), format_func=lambda m: f"{m} — {titulares[m]}",
                             key=f"titular_{modo}")
     nome = titulares[matricula]
     loc = eliminacao.localizar(db, matricula, nome)
+    if loc.sessoes_sem_vinculo or loc.memorias_sem_vinculo:
+        st.warning("Há registros sob este user_id sem vínculo comprovado com o titular. "
+                   "Eles serão preservados e constarão na evidência para análise manual.")
     a, b, c = st.columns(3)
     a.metric("Sessões sob o user_id do titular", len(loc.sessoes_do_titular))
     b.metric("Sessões que o citam sob outro user_id", len(loc.sessoes_sob_outro_user_id))
@@ -417,7 +419,7 @@ def pagina_lgpd() -> None:
         if st.checkbox(rotulo, key=f"conf_{modo}_{matricula}_{s['session_id']}",
                        disabled=not s["vinculo_verificado"]):
             confirmadas.append(s["session_id"])
-    memorias_alheias = [m["memory_id"] for m in loc.memorias_sob_outro_user_id]
+    memorias_alheias = [m["memory_id"] for m in loc.memorias_sob_outro_user_id if m["vinculo_verificado"]]
     incluir_memorias = bool(memorias_alheias) and st.checkbox(
         f"Incluir {len(memorias_alheias)} memória(s) sob outro user_id que citam o titular",
         key=f"incluir_memorias_{modo}_{matricula}")

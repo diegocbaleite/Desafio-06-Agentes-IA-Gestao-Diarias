@@ -1,0 +1,20 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.2.0, pluggy-1.7.0
+rootdir: <raiz-do-projeto>
+configfile: pytest.ini
+testpaths: testes
+plugins: anyio-4.16.0
+collected 131 items
+
+testes\test_agente_simulado.py ..............                            [ 10%]
+testes\test_auditoria_final.py .................................         [ 35%]
+testes\test_barreira.py ....................                             [ 51%]
+testes\test_ferramentas.py .................................             [ 76%]
+testes\test_filtro_pii.py ......                                         [ 80%]
+testes\test_interface_modos.py .                                         [ 81%]
+testes\test_isolamento.py ....                                           [ 84%]
+testes\test_memoria_eliminacao.py .......                                [ 90%]
+testes\test_revisao.py .............                                     [100%]
+
+- generated xml file: <temporario-da-validacao>\pytest-correcao.xml -
+============================ 131 passed in 38.20s =============================

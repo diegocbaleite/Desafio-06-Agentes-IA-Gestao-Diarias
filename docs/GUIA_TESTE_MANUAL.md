@@ -45,11 +45,7 @@ Consulte também o [relatório](../relatorio.md) e a
 ## 2. Preparar o teste
 
 1. Abra o PowerShell ou o terminal do VS Code.
-2. Entre na pasta do projeto neste computador:
-
-   ```powershell
-   cd "C:\Users\Diego\Downloads\desafio-01-diarias"
-   ```
+2. Abra o terminal na raiz do repositório clonado, no local escolhido para o projeto.
 
 3. Confira se você está na pasta que contém `app.py`, `.venv`, `dados/` e `testes/`.
 4. Use os dados fictícios que já acompanham o exercício. As datas desses dados são
@@ -87,7 +83,8 @@ Se o executável não existir, siga a instalação descrita no [README](../READM
 .\.venv\Scripts\python.exe -m pytest
 ```
 
-**Esperado:** `98 passed`. O tempo de execução pode variar.
+**Esperado:** todos os testes aprovados, incluindo as regressões da auditoria final.
+A contagem e o tempo atuais estão em `resultados/evidencias/correcao_auditoria_20261121.json`.
 Esses testes usam funções locais e o simulador; não chamam a API real.
 
 **Se houver testes com falha, registre a mensagem e investigue antes de entregar.**
@@ -442,7 +439,7 @@ Não é necessário repetir todas as baterias para fazer este roteiro de tela.
 ### Verificações necessárias
 
 - [ ] Python da `.venv` funciona e `pip check` não apresenta conflitos.
-- [ ] Os 98 testes automatizados passam.
+- [ ] Todos os testes automatizados, incluindo as regressões da auditoria final, passam.
 - [ ] As seis páginas abrem sem exceção do aplicativo.
 - [ ] Resultados, minutas e confirmações de eliminação não se misturam entre demonstração e API.
 - [ ] Os doze pedidos e as duas complementações conferem no simulador.

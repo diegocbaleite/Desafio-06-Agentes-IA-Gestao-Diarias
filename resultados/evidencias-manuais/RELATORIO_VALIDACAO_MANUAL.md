@@ -32,7 +32,14 @@ Os arquivos não exibem chave OPENAI_API_KEY nem senhas nas partes analisadas. A
 
 ## Evidências de eliminação no formato JSON
 
-O sistema gerou arquivos de evidência locais com prefixo `eliminacao_simulador_`, mostrados nos prints. **Os JSONs produzidos durante esta sessão local não foram anexados à conversa e portanto não estão incluídos neste pacote.** Eles devem ser copiados da pasta `resultados/evidencias/` do computador de origem se forem necessários na entrega.
+Os JSONs mostrados nos prints estão incluídos no repositório em `resultados/evidencias/`:
+
+- `eliminacao_simulador_207418_20261121135526.json`: sessão 0112, sob o user_id anterior;
+- `eliminacao_simulador_206689_20261121135735.json`: sessão 0111.
+
+Eles registram as ações, as contagens antes/depois e a ausência de ocorrências após as
+eliminações no simulador. São evidências históricas; as correções posteriores estão
+documentadas em `docs/CORRECOES_AUDITORIA.md`, sem substituir os prints ou seus hashes.
 
 ## Como publicar no repositório local
 

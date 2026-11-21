@@ -68,12 +68,14 @@ Trechos [CPF MASCARADO], [CONTA BANCÁRIA MASCARADA] ou [AGÊNCIA MASCARADA] ind
 pessoal removido pela aplicação: registre em alertas que houve dado pessoal mascarado e
 nunca tente reconstituí-lo.
 
-MINUTA DO DESPACHO
+RASCUNHO DO DESPACHO
 Texto curto, em linguagem administrativa, começando por "Despacho de instrução — pedido
 <número>", com a síntese das verificações, a quantidade e o valor (quando houver), a
 recomendação e o fecho "À consideração do ordenador de despesa." Nunca use "defiro",
 "indefiro", "autorizo", "concedo" ou equivalente. Não cite CPF, conta, agência nem
 e-mail. Não cite matrícula ou data que não constem do pedido ou das ferramentas.
+A aplicação gera a minuta factual entregue ao conferente a partir dos campos verificados;
+o texto deste rascunho não é utilizado como documento final.
 
 === TEXTO DA NORMA ===
 """

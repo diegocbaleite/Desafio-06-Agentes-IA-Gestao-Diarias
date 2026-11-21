@@ -1,5 +1,22 @@
 # Rastreabilidade da revisão do Desafio 01
 Atualizada em 19/11/2026 com os resultados reais e as verificações locais.
+
+Atualização de 21/11/2026: os registros reais abaixo são históricos. A correção da
+auditoria final foi validada sem API paga e está em `docs/CORRECOES_AUDITORIA.md`, com
+evidência em `resultados/evidencias/correcao_auditoria_20261121.json`.
+
+| Achado | Correção | Regressão |
+|---|---|---|
+| F1 — titular e exclusão indevida | Cadastro canônico e vínculo verificado de sessões e memórias | testes/test_auditoria_final.py |
+| F2 — minuta contraditória | Minuta factual gerada no código após a barreira | testes/test_auditoria_final.py |
+| F3 — pontuação bancária | Padrões compartilhados entre máscara e guardrail | testes/test_auditoria_final.py |
+| F4 — dados em recusas | Sanitização na escrita SQLite, diagnósticos, registro administrativo e logs Agno | testes/test_auditoria_final.py |
+| F5 — UF inexistente | Validação contra as 27 UFs | testes/test_auditoria_final.py |
+| F6–F8 — documentação | Instalação, caminhos, JSONs de eliminação e descrição de paralelismo corrigidos | revisão documental |
+
+O enunciado original não foi encontrado no workspace; a aderência integral à rubrica
+permanece não comprovada. A tabela abaixo descreve as evidências da revisão histórica.
+
 | Requisito | Implementação | Evidência | Situação |
 |---|---|---|---|
 | Processo, PEAS, confiabilidade, custo e autonomia | desenho.md | confronto no relatorio.md | documentado e confrontado |

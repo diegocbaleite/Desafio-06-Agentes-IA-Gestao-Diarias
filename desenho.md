@@ -9,6 +9,11 @@ IN SEMA nº 07/2026 são hipotéticos.
 > (`avaliacao/estimar_tokens.py`). A confrontação com o **medido** fica no `relatorio.md`,
 > preenchida somente com execuções reais.
 
+> **Atualização de 21/11/2026:** as estimativas de custo abaixo permanecem como registro
+> anterior à medição. A minuta factual agora é gerada em Python após a barreira, e a
+> escrita SQLite e a eliminação receberam as proteções descritas em
+> `docs/CORRECOES_AUDITORIA.md`. As contagens de chamadas distinguem hipótese e observação.
+
 ---
 
 ## 1. Como o servidor instrui hoje (processo manual)
@@ -71,7 +76,7 @@ Pedido protocolado ──► [aplicação] mascara CPF/agência/conta ──► 
 | 6 histórico | `consultar_historico_diarias` | código |
 | 7–8 quantidade, valor, limite | `calcular_diarias` (Decimal) | código |
 | 9 saldo | `consultar_saldo_diarias` | código |
-| 10 minuta | campo `minuta_despacho` | **modelo** (barreira proíbe verbos decisórios, dado pessoal, matrícula/data estranhas) |
+| 10 minuta | `agente/minuta.py` após a barreira | **código**, a partir dos campos verificados; servidor pode editar na conferência |
 | 11 encaminhamento | formulário de conferência | **servidor** |
 | 12 complementação | mesma sessão (`session_id` = nº do pedido), histórico recuperado | Agno + barreira |
 
@@ -105,7 +110,7 @@ aritmética monetária em `Decimal`; "não localizado" é distinto de "impedimen
 |---|---|---|
 | Máscara de dados pessoais | Ordem e argumentos das chamadas (verificados pela barreira) | Encaminhamento final (formulário) |
 | Conferência do cadastro | Julgamento de urgência (art. 5º, § 1º) | Urgência aceita: autorização **escrita** do Secretário Adjunto |
-| Quantidade, valor, antecedência, limite, prazo, saldo | Redação da minuta, pendências e alertas | Minuta (campo editável) |
+| Quantidade, valor, antecedência, limite, prazo, saldo e minuta factual | Rascunho, pendências e alertas | Minuta (campo editável) |
 | Barreira: argumentos ancorados, números iguais aos da ferramenta, coerência da recomendação | Reconhecer ordens embutidas e registrar alerta | Toda recusa da barreira (análise manual) |
 | Status da execução, eliminação e verificação no banco | Recuperar o pedido do histórico na complementação | Eliminação de sessão gravada sob outro user_id (vínculo + confirmação) |
 
@@ -127,15 +132,17 @@ complementação, mais 5.
 | Caso | n | p = 95% | p = 99% |
 |---|---:|---:|---:|
 | Diligência (cadastro diverge / dado ausente) | 2 | 90,3% | 98,0% |
-| Paralelas ligadas (cadastro+histórico+cálculo juntos, saldo, final) | 3 | 85,7% | 97,0% |
+| Paralelas ligadas — hipótese compatível: cadastro; histórico+cálculo; saldo; final | 4 | 81,5% | 96,1% |
 | Pedido regular (paralelas desligadas) | 5 | 77,4% | 95,1% |
 | Diligência + complementação (processo completo) | 7 | 69,8% | 93,2% |
 
 Leitura: a 95% por passo, perto de 1 em 4 pedidos regulares teria algum passo errado. Por isso
 o desenho **não depende** de o modelo acertar todos os passos: a barreira transforma o erro
 silencioso em recusa visível (vale mais "11 certos e 3 recusados" que "13 certos e 1 calculado
-para o servidor errado"). Paralelas ligadas reduzem n para 3, mas criam o risco de o saldo ser
-consultado antes do valor existir (Aula 06, 4.3) — ver decisão no item 10.
+para o servidor errado"). A hipótese inicial de três chamadas agrupava cadastro, histórico
+e cálculo, contrariando a dependência do cadastro conferido. Na implementação, o simulador
+agrupa histórico e cálculo depois do cadastro, chegando a quatro chamadas. Nas medições
+reais históricas não houve ferramentas simultâneas: o pedido regular permaneceu com cinco.
 
 ## 8. Custo por passos
 
@@ -195,7 +202,7 @@ R$ 980, ao câmbio de R$ 5,80/US$, equivale a ~30 mil instruções); a decisão 
 
 | Parâmetro | Valor | Justificativa |
 |---|---|---|
-| `parallel_tool_calls` | **False** | O saldo depende do valor calculado e da unidade do cadastro (Aula 06, 4.3). A API garante a ordem; a instrução sozinha não. A comparação com paralelas ligadas é medida na Etapa 7. |
+| `parallel_tool_calls` | **False** | Limita cada resposta a zero ou uma chamada de ferramenta. A ordem de negócio é conferida pela barreira: cadastro antes de histórico/cálculo e saldo depois do cálculo. A comparação com paralelas ligadas está na Etapa 7. |
 | `tool_call_limit` | **6** | 4 consultas necessárias + 2 de margem (uma repetição por argumento inválido). Um teto menor (2) foi provocado como falha F2b. |
 | `reasoning_effort` | `"none"` | Exigido pela família GPT-5.6 com ferramentas no Chat Completions (Aula 06, 4.1). |
 | `output_schema` | `Instrucao` | A tela e o avaliador leem campos, não texto. |

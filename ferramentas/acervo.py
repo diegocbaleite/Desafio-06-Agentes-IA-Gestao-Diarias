@@ -22,6 +22,7 @@ from config import DADOS
 RE_MATRICULA = re.compile(r"^\d{6}$")
 RE_DATA_ISO = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 CENTAVO = Decimal("0.01")
+UFS = frozenset("AC AL AP AM BA CE DF ES GO MA MT MS MG PA PB PR PE PI RJ RN RS RO RR SC SP SE TO".split())
 
 
 # ------------------------------------------------------------------ leitura

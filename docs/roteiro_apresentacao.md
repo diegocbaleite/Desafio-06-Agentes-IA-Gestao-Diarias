@@ -30,12 +30,14 @@ especialidades.
 
 **Se a barreira confere tudo, para que o modelo?** A barreira confere o que é verificável
 (argumentos, números, coerência); o modelo faz o que não é regra fechada: ler a justificativa,
-julgar urgência, perceber a ordem embutida, redigir pendências e minuta e encadear as
-consultas. Onde há julgamento (urgência), a barreira só exige indícios e autorização superior.
+julgar urgência, perceber a ordem embutida, redigir pendências e encadear as consultas.
+A minuta factual final é gerada no Python a partir dos campos verificados. Onde há
+julgamento (urgência), a barreira só exige indícios e autorização superior.
 
-**Por que paralelas desligadas se ligadas economizam uma chamada?** O saldo depende do valor e
-da unidade. `parallel_tool_calls=False` é garantido pela API; a regra no prompt, não (Aula 06,
-4.3). A comparação foi executada nas duas configurações; apresente os resultados do relatório.
+**Por que paralelas desligadas?** O saldo depende do valor e da unidade. O parâmetro limita
+cada resposta a zero ou uma ferramenta; a barreira verifica a ordem das consultas.
+No simulador, agrupar histórico e cálculo após o cadastro economiza uma chamada. Na bateria
+real histórica não houve ferramentas simultâneas; não afirme ganho real de paralelismo.
 
 **Por que `tool_call_limit=6`?** São 4 consultas; 2 de margem para uma repetição. Com 2, a
 instrução fica incompleta e é recusada (F2b).
