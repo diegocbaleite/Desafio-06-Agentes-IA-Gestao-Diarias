@@ -81,3 +81,23 @@ forma convincente, mas falsa, passa — por isso o humano.
 - **Ressalvas a declarar:** LGPD limitada ao banco de trabalho, 30 dias ainda propostos (sem expurgo automático), ausência de autenticação institucional demonstrada, julgamento humano indispensável.
 
 **Link de orientação:** [estrutura completa](ESTRUTURA_PROJETO.md). Para uma exposição de 12–14 minutos, mostre a evidência histórica em lugar de executar novos testes destrutivos ou pagos.
+
+## Comparação simulada final — 21/11/2026
+
+**Demonstração de resultados (aproximadamente 45–60 segundos):** mostre no navegador os JSONs [paralelas desligadas](../resultados/simulador/execucao_casos_paralelas_desligadas.json) e [paralelas ligadas](../resultados/simulador/execucao_casos_paralelas_ligadas.json), publicados no commit `d5b8ce0`. Em cada configuração, são 3 rodadas de 12 pedidos originais + 2 complementações, com 14/14 acertos por rodada, totalizando **84/84 comparações no simulador, sem recusas, erros ou instruções incorretas entregues**.
+
+| Indicador por rodada no simulador | Desligadas | Ligadas |
+|---|---:|---:|
+| Acertos | 14/14 | 14/14 |
+| Chamadas ao modelo | 64 | 52 |
+| Chamadas às ferramentas | 50 | 50 |
+| Ferramentas por chamada (máximo) | 1 | 2 |
+| Custo estimado (US$) | 0,066830 | 0,055681 |
+
+**Fala sugerida para a banca:**
+
+> “Na versão final corrigida, executei o pipeline com os doze pedidos e as duas complementações, três vezes com paralelismo desligado e três com ele ligado. O simulador acertou 84 de 84 verificações. Quando ligado, reduziu as chamadas simuladas ao modelo de 64 para 52 por rodada, mas não apresento isso como economia comprovada da API real. Na bateria real histórica houve 83 acertos em 84 comparações e uma recusa segura — nenhum resultado incorreto chegou ao conferente. O objetivo da barreira é justamente transformar falhas em recusas visíveis.”
+
+**Pergunta provável:** “Os 84/84 provam que o modelo real é infalível?”
+
+**Resposta:** “Não. São resultados de simulação com dados sintéticos. A bateria real histórica teve 83/84 instruções corretas e uma recusa segura. O sistema ainda requer conferência humana, principalmente para julgamento de urgência.”

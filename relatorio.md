@@ -97,6 +97,35 @@ O servidor confere a recomendação e os fundamentos, edita a minuta e registra 
 
 Mesmo com paralelismo habilitado, o modelo executou no máximo uma ferramenta por chamada nesta bateria real. Portanto, não foi observado ganho de chamadas paralelas no modelo; a economia observada no simulador não foi usada para justificar uma mudança do padrão.
 
+## Comparação simulada final — 21/11/2026
+
+**Natureza desta medição:** testes de integração contra o servidor **simulado** da API, realizados na versão corrigida e publicados no commit `d5b8ce0`. Não constituem uma segunda bateria paga no modelo real.
+
+| Métrica por rodada | Paralelas desligadas | Paralelas ligadas |
+|---|---:|---:|
+| Casos avaliados (12 pedidos + 2 complementações) | 14 | 14 |
+| Corretos em cada uma das três rodadas | 14/14 | 14/14 |
+| Corretos nas três rodadas | **42/42** | **42/42** |
+| Recusas da barreira / erros / instruções erradas entregues | 0 / 0 / 0 | 0 / 0 / 0 |
+| Chamadas ao modelo | 64 | 52 |
+| Chamadas a ferramentas | 50 | 50 |
+| Máximo de ferramentas na mesma chamada | 1 | 2 |
+| Tokens de entrada simulados | 290.890 | 236.086 |
+| Custo estimado pelo simulador (US$) | 0,066830 | 0,055681 |
+
+Na simulação, ligar o paralelismo representou redução de **18,75%** nas chamadas ao modelo e **16,68%** no custo estimado, sem alterar a quantidade de consultas. A sequência de dependências do cadastro e do saldo continua sujeita à barreira do código. Esses números descrevem o comportamento do **simulador**, não fatura, latência ou economia comprovada do provedor.
+
+Fontes: [JSON — paralelas desligadas](resultados/simulador/execucao_casos_paralelas_desligadas.json) e [JSON — paralelas ligadas](resultados/simulador/execucao_casos_paralelas_ligadas.json). O **total é 84/84 comparações simuladas**, e não 84 pedidos únicos. A série **real histórica** acima permanece **83/84**, com uma recusa segura. Na série real, `max_ferramentas_simultaneas=1` mesmo com o parâmetro de paralelismo ligado, portanto **não se deve afirmar que houve execução paralela real**.
+
+Comandos de reprodução sem chamadas pagas:
+
+```powershell
+.\.venv\Scripts\python.exe -m avaliacao.executar_casos --simulador --rodadas 3
+.\.venv\Scripts\python.exe -m avaliacao.executar_casos --simulador --paralelas --rodadas 3
+```
+
+Os comandos atualizam os resultados em `resultados/simulador/` e não devem sobrescrever os arquivos históricos da API real em `resultados/`.
+
 ## Reprodução e evidências
 
 Use o Python da `.venv`, conforme `LEIA-ME.md`, e configure a chave somente no `.env`. Os comandos de avaliação são `python -m avaliacao.executar_casos`, o mesmo comando com `--paralelas`, `python -m avaliacao.medir_memoria`, `python -m avaliacao.provocar_falhas`, `python -m avaliacao.medir_desempenho` e `python -m avaliacao.gerar_relatorio`.

@@ -408,6 +408,27 @@ limitações estão detalhados em [relatorio.md](relatorio.md) e no
 
 ---
 
+## Comparação simulada final — 21/11/2026
+
+Após as correções F1–F8, a versão publicada foi exercitada novamente no **simulador local**, com **12 pedidos e 2 complementações por rodada**, em três rodadas por configuração. Os dois arquivos abaixo foram versionados no commit `d5b8ce0`.
+
+| Configuração no simulador | Rodada 1 | Rodada 2 | Rodada 3 | Total |
+|---|---:|---:|---:|---:|
+| Paralelas desligadas | 14/14 | 14/14 | 14/14 | **42/42** |
+| Paralelas ligadas | 14/14 | 14/14 | 14/14 | **42/42** |
+| **Total** | **28/28** | **28/28** | **28/28** | **84/84** |
+
+**Sem recusas, erros de execução ou instruções erradas entregues no simulador.** Por rodada, a configuração desligada usou 64 chamadas ao modelo, 50 chamadas a ferramentas e custo **estimado** de US$ 0,066830; a ligada usou 52 chamadas ao modelo, 50 chamadas a ferramentas e custo **estimado** de US$ 0,055681. No simulador, isso equivale a 18,75% menos chamadas ao modelo e aproximadamente 16,68% menos custo estimado.
+
+**Evidências originais:** [paralelas desligadas](resultados/simulador/execucao_casos_paralelas_desligadas.json) e [paralelas ligadas](resultados/simulador/execucao_casos_paralelas_ligadas.json). Para reproduzir sem chave ou custo de API real:
+
+```powershell
+.\.venv\Scripts\python.exe -m avaliacao.executar_casos --simulador --rodadas 3
+.\.venv\Scripts\python.exe -m avaliacao.executar_casos --simulador --paralelas --rodadas 3
+```
+
+**Não confundir:** esses **84 casos simulados** são distintos da bateria **histórica com API real** (19/11/2026: 83/84 corretos, 1 recusa segura). O simulador emitiu até duas ferramentas por chamada quando o paralelismo foi habilitado, mas a bateria real histórica registrou no máximo uma ferramenta por chamada em ambas as configurações; portanto, **não há comprovação de economia real de API devido ao paralelismo**. A execução do simulador pode substituir seus JSONs de saída na pasta `resultados/simulador/`.
+
 ## 📈 Reprodução das Medições
 
 Com a chave configurada, execute na pasta do projeto:
