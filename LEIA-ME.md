@@ -85,24 +85,27 @@ medição**. Na tela, o mesmo simulador é o "modo demonstração" da barra late
 ## 5. Estrutura
 
 ```text
-desafio-01-diarias/
+Desafio-06-Agentes-IA-Gestao-Diarias/
 ├── app.py                      formulário Streamlit (6 páginas)
 ├── config.py                   .env, modelo, limites, preços, mensagem padrão
 ├── agente/
 │   ├── agente_diarias.py       construir_agente() e instruir() — fronteira com a tela
 │   ├── instrucoes.py           instrução de sistema (com a norma) e mensagens dos turnos
-│   └── modelos.py              Verificacao e Instrucao (Pydantic)
+│   ├── modelos.py              Verificacao e Instrucao (Pydantic)
+│   └── minuta.py               minuta factual construída após validação
 ├── ferramentas/                cadastro, histórico, cálculos, orçamento + acervo (dados e regras)
 ├── seguranca/                  filtro_pii.py (máscara + guardrail) e barreiras.py
-├── memoria/                    persistencia.py, eliminacao.py, verificacao.py
+├── memoria/                    persistencia.py, eliminacao.py, verificacao.py, banco_protegido.py
 ├── avaliacao/                  executar_casos, medir_memoria, provocar_falhas, medir_desempenho,
 │   │                           estimar_tokens, gerar_relatorio, comparar_gabarito, execucao
 │   └── externo/gabarito.json   lido SOMENTE por comparar_gabarito.py
 ├── simulador/                  servidor local que imita /v1/chat/completions (só testes/demonstração)
 ├── testes/                     testes Pytest, incluindo regressões da auditoria final
 ├── dados/                      acervo de exemplos/dados (cópia) + gerador original
-├── resultados/                 medições (API real), simulador/ e evidencias/
+├── resultados/                 medições, simulador/, evidencias/, historico/ e evidencias-manuais/
+│   └── evidencias-manuais/api-real-20261121/   29 capturas posteriores com API real
 ├── docs/roteiro_apresentacao.md
+├── docs/ESTRUTURA_PROJETO.md  descrição detalhada de pastas e arquivos
 ├── desenho.md · relatorio.md · requisitos_rastreabilidade.md
 └── requirements.txt · .env.example · .gitignore
 ```
@@ -205,3 +208,16 @@ Na revisão histórica de 19/11/2026: 98 testes locais aprovados e medições re
 configurações de paralelismo, nas três configurações de memória e nos cenários de falha.
 As correções posteriores e sua validação sem API paga estão em
 `docs/CORRECOES_AUDITORIA.md`; esses resultados não substituem as medições históricas.
+
+## 9. Atualização de evidências da entrega (21/11/2026)
+
+O enunciado oficial analisado para a entrega é **Desafio 01 — Instrução de Pedidos de Diárias**, Aulas 01–07; **Desafio 06** é o nome do repositório. A edição original desta documentação foi redigida quando o enunciado não estava disponível no workspace; nesta revisão o documento foi fornecido ao avaliador.
+
+- **19/11/2026 — API real histórica:** 83/84 casos corretos, uma recusa segura e zero instruções incorretas entregues. Evidência: [relatório](relatorio.md) e JSONs de execução em [resultados/](resultados/).
+- **21/11/2026 — regressões da versão corrigida:** 131/131 testes locais aprovados. Evidência: [Pytest](resultados/evidencias/pytest_correcao_20261121.txt) e [correções](docs/CORRECOES_AUDITORIA.md). Isso não é uma nova bateria de 84 execuções com API real.
+- **21/11/2026 — inspeção manual com API real:** 29 capturas, incluindo pedidos 0101 e 0107, diligências 0111 e 0112, conferência humana, persistência entre acessos e exclusão lógica. [Índice com os arquivos](resultados/INDICE_EVIDENCIAS_API_REAL.md).
+- **21/11/2026 — eliminação LGPD:** o JSON [eliminacao_api_207418_20261121155444.json](resultados/evidencias/eliminacao_api_207418_20261121155444.json) mostra sessões **4→3** e execuções **6→4** no banco do agente e três sessões alheias preservadas. A verificação não inclui backups nem o banco administrativo.
+
+Para preparar a demonstração, utilize [docs/roteiro_apresentacao.md](docs/roteiro_apresentacao.md) e o [inventário da estrutura](docs/ESTRUTURA_PROJETO.md). O banco usado pelo simulador é separado do banco do agente com API real. **Não repita a eliminação apenas para apresentar**; mostre a evidência gravada.
+
+A proposta de retenção de 30 dias permanece **não automatizada**, e não há autenticação institucional com perfis demonstrada no protótipo. Não armazene chaves nos documentos, prints, commits ou resultados.
