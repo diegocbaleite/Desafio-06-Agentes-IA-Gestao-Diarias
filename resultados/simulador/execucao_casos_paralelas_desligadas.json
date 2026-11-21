@@ -2,7 +2,7 @@
   "modo": "simulador",
   "modelo": "gpt-5.6-luna",
   "aviso": "EXECUÇÃO COM SIMULADOR LOCAL: valida o pipeline (Agno, ferramentas, barreira, memória, eliminação). Tokens, tempo e custo são do simulador e NÃO são medições do modelo gpt-5.6-luna.",
-  "gerado_em": "2026-11-19T16:42:03",
+  "gerado_em": "2026-11-21T17:09:43",
   "configuracao": {
     "paralelas": false,
     "tool_call_limit": 6,
@@ -25,19 +25,19 @@
           "exige_autorizacao_superior": 14,
           "criterios_nao_atendidos": 14
         },
-        "tokens_entrada": 288281,
+        "tokens_entrada": 290890,
         "tokens_saida": 7210,
         "chamadas_modelo": 64,
         "chamadas_ferramenta": 50,
         "max_ferramentas_simultaneas": 1,
-        "custo_total_usd": 0.066309,
-        "custo_medio_usd": 0.004736,
-        "custo_min_usd": 0.002077,
-        "custo_max_usd": 0.005701,
-        "tempo_total_s": 0.84,
-        "tempo_medio_s": 0.06,
-        "tempo_min_s": 0.01,
-        "tempo_max_s": 0.26,
+        "custo_total_usd": 0.06683,
+        "custo_medio_usd": 0.004774,
+        "custo_min_usd": 0.002093,
+        "custo_max_usd": 0.005742,
+        "tempo_total_s": 1.83,
+        "tempo_medio_s": 0.13,
+        "tempo_min_s": 0.05,
+        "tempo_max_s": 0.33,
         "criterios_verificados": [
           "cadastro",
           "dados_completos",
@@ -69,14 +69,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 22106,
+            "tokens_entrada": 22309,
             "tokens_saida": 528,
             "entrada_por_chamada": [
-              3998,
-              4196,
-              4387,
-              4677,
-              4848
+              4038,
+              4237,
+              4428,
+              4718,
+              4888
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -88,8 +88,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.26,
-            "custo_usd": 0.005055
+            "segundos": 0.33,
+            "custo_usd": 0.005095
           },
           "motivos_recusa": [],
           "consultas": [
@@ -149,14 +149,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 22131,
+            "tokens_entrada": 22334,
             "tokens_saida": 556,
             "entrada_por_chamada": [
-              3984,
-              4182,
-              4405,
-              4695,
-              4865
+              4025,
+              4223,
+              4445,
+              4735,
+              4906
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -168,8 +168,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.04,
-            "custo_usd": 0.005093
+            "segundos": 0.1,
+            "custo_usd": 0.005134
           },
           "motivos_recusa": [],
           "consultas": [
@@ -229,14 +229,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 22077,
+            "tokens_entrada": 22279,
             "tokens_saida": 528,
             "entrada_por_chamada": [
-              3989,
-              4191,
-              4382,
-              4672,
-              4843
+              4030,
+              4232,
+              4422,
+              4712,
+              4883
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -248,8 +248,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.07,
-            "custo_usd": 0.005049
+            "segundos": 0.16,
+            "custo_usd": 0.005089
           },
           "motivos_recusa": [],
           "consultas": [
@@ -309,14 +309,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 22329,
+            "tokens_entrada": 22533,
             "tokens_saida": 545,
             "entrada_por_chamada": [
-              4036,
-              4243,
-              4433,
-              4725,
-              4892
+              4077,
+              4283,
+              4474,
+              4766,
+              4933
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -328,8 +328,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.05,
-            "custo_usd": 0.00512
+            "segundos": 0.12,
+            "custo_usd": 0.005161
           },
           "motivos_recusa": [],
           "consultas": [
@@ -391,14 +391,14 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 22088,
+            "tokens_entrada": 22292,
             "tokens_saida": 528,
             "entrada_por_chamada": [
-              3991,
-              4194,
-              4384,
-              4674,
-              4845
+              4032,
+              4234,
+              4425,
+              4715,
+              4886
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -410,8 +410,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.05,
-            "custo_usd": 0.005051
+            "segundos": 0.15,
+            "custo_usd": 0.005092
           },
           "motivos_recusa": [],
           "consultas": [
@@ -471,14 +471,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 22143,
+            "tokens_entrada": 22347,
             "tokens_saida": 542,
             "entrada_por_chamada": [
-              4006,
-              4203,
-              4394,
-              4684,
-              4856
+              4046,
+              4244,
+              4435,
+              4725,
+              4897
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -490,8 +490,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.1,
-            "custo_usd": 0.005079
+            "segundos": 0.12,
+            "custo_usd": 0.00512
           },
           "motivos_recusa": [],
           "consultas": [
@@ -553,14 +553,14 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 22315,
+            "tokens_entrada": 22519,
             "tokens_saida": 541,
             "entrada_por_chamada": [
-              4038,
-              4239,
-              4429,
-              4719,
-              4890
+              4079,
+              4279,
+              4470,
+              4760,
+              4931
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -572,8 +572,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.03,
-            "custo_usd": 0.005112
+            "segundos": 0.13,
+            "custo_usd": 0.005153
           },
           "motivos_recusa": [],
           "consultas": [
@@ -635,14 +635,14 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 22140,
+            "tokens_entrada": 22345,
             "tokens_saida": 553,
             "entrada_por_chamada": [
-              3984,
-              4184,
-              4407,
-              4697,
-              4868
+              4025,
+              4225,
+              4448,
+              4738,
+              4909
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -654,8 +654,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.05,
-            "custo_usd": 0.005092
+            "segundos": 0.17,
+            "custo_usd": 0.005133
           },
           "motivos_recusa": [],
           "consultas": [
@@ -717,14 +717,14 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 22087,
+            "tokens_entrada": 22291,
             "tokens_saida": 526,
             "entrada_por_chamada": [
-              3986,
-              4188,
-              4388,
-              4679,
-              4846
+              4027,
+              4229,
+              4428,
+              4720,
+              4887
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -736,8 +736,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.03,
-            "custo_usd": 0.005049
+            "segundos": 0.09,
+            "custo_usd": 0.005089
           },
           "motivos_recusa": [],
           "consultas": [
@@ -799,14 +799,14 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 22057,
+            "tokens_entrada": 22260,
             "tokens_saida": 527,
             "entrada_por_chamada": [
-              3984,
-              4188,
-              4378,
-              4668,
-              4839
+              4024,
+              4228,
+              4419,
+              4709,
+              4880
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -818,8 +818,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.03,
-            "custo_usd": 0.005044
+            "segundos": 0.1,
+            "custo_usd": 0.005084
           },
           "motivos_recusa": [],
           "consultas": [
@@ -881,11 +881,11 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 8187,
+            "tokens_entrada": 8269,
             "tokens_saida": 366,
             "entrada_por_chamada": [
-              3994,
-              4193
+              4035,
+              4234
             ],
             "chamadas_modelo": 2,
             "ferramentas_por_chamada": [
@@ -894,8 +894,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 1,
-            "segundos": 0.03,
-            "custo_usd": 0.002077
+            "segundos": 0.05,
+            "custo_usd": 0.002093
           },
           "motivos_recusa": [],
           "consultas": [
@@ -933,11 +933,11 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 8167,
+            "tokens_entrada": 8249,
             "tokens_saida": 415,
             "entrada_por_chamada": [
-              3983,
-              4184
+              4024,
+              4225
             ],
             "chamadas_modelo": 2,
             "ferramentas_por_chamada": [
@@ -946,8 +946,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 1,
-            "segundos": 0.01,
-            "custo_usd": 0.002131
+            "segundos": 0.08,
+            "custo_usd": 0.002148
           },
           "motivos_recusa": [],
           "consultas": [
@@ -983,14 +983,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 25112,
+            "tokens_entrada": 25316,
             "tokens_saida": 528,
             "entrada_por_chamada": [
-              4599,
-              4798,
-              4988,
-              5278,
-              5449
+              4640,
+              4838,
+              5029,
+              5319,
+              5490
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -1002,8 +1002,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.05,
-            "custo_usd": 0.005656
+            "segundos": 0.11,
+            "custo_usd": 0.005697
           },
           "motivos_recusa": [],
           "consultas": [
@@ -1063,14 +1063,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 25342,
+            "tokens_entrada": 25547,
             "tokens_saida": 527,
             "entrada_por_chamada": [
-              4646,
-              4843,
-              5034,
-              5324,
-              5495
+              4687,
+              4884,
+              5075,
+              5365,
+              5536
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -1082,8 +1082,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.04,
-            "custo_usd": 0.005701
+            "segundos": 0.12,
+            "custo_usd": 0.005742
           },
           "motivos_recusa": [],
           "consultas": [
@@ -1139,19 +1139,19 @@
           "exige_autorizacao_superior": 14,
           "criterios_nao_atendidos": 14
         },
-        "tokens_entrada": 288281,
+        "tokens_entrada": 290890,
         "tokens_saida": 7210,
         "chamadas_modelo": 64,
         "chamadas_ferramenta": 50,
         "max_ferramentas_simultaneas": 1,
-        "custo_total_usd": 0.066309,
-        "custo_medio_usd": 0.004736,
-        "custo_min_usd": 0.002077,
-        "custo_max_usd": 0.005701,
-        "tempo_total_s": 0.84,
-        "tempo_medio_s": 0.06,
-        "tempo_min_s": 0.01,
-        "tempo_max_s": 0.1,
+        "custo_total_usd": 0.06683,
+        "custo_medio_usd": 0.004774,
+        "custo_min_usd": 0.002093,
+        "custo_max_usd": 0.005742,
+        "tempo_total_s": 1.65,
+        "tempo_medio_s": 0.12,
+        "tempo_min_s": 0.05,
+        "tempo_max_s": 0.16,
         "criterios_verificados": [
           "cadastro",
           "dados_completos",
@@ -1183,14 +1183,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 22106,
+            "tokens_entrada": 22309,
             "tokens_saida": 528,
             "entrada_por_chamada": [
-              3998,
-              4196,
-              4387,
-              4677,
-              4848
+              4038,
+              4237,
+              4428,
+              4718,
+              4888
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -1202,8 +1202,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.09,
-            "custo_usd": 0.005055
+            "segundos": 0.14,
+            "custo_usd": 0.005095
           },
           "motivos_recusa": [],
           "consultas": [
@@ -1263,14 +1263,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 22131,
+            "tokens_entrada": 22334,
             "tokens_saida": 556,
             "entrada_por_chamada": [
-              3984,
-              4182,
-              4405,
-              4695,
-              4865
+              4025,
+              4223,
+              4445,
+              4735,
+              4906
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -1282,8 +1282,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.07,
-            "custo_usd": 0.005093
+            "segundos": 0.11,
+            "custo_usd": 0.005134
           },
           "motivos_recusa": [],
           "consultas": [
@@ -1343,14 +1343,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 22077,
+            "tokens_entrada": 22279,
             "tokens_saida": 528,
             "entrada_por_chamada": [
-              3989,
-              4191,
-              4382,
-              4672,
-              4843
+              4030,
+              4232,
+              4422,
+              4712,
+              4883
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -1362,8 +1362,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.05,
-            "custo_usd": 0.005049
+            "segundos": 0.11,
+            "custo_usd": 0.005089
           },
           "motivos_recusa": [],
           "consultas": [
@@ -1423,14 +1423,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 22329,
+            "tokens_entrada": 22533,
             "tokens_saida": 545,
             "entrada_por_chamada": [
-              4036,
-              4243,
-              4433,
-              4725,
-              4892
+              4077,
+              4283,
+              4474,
+              4766,
+              4933
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -1442,8 +1442,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.08,
-            "custo_usd": 0.00512
+            "segundos": 0.09,
+            "custo_usd": 0.005161
           },
           "motivos_recusa": [],
           "consultas": [
@@ -1505,14 +1505,14 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 22088,
+            "tokens_entrada": 22292,
             "tokens_saida": 528,
             "entrada_por_chamada": [
-              3991,
-              4194,
-              4384,
-              4674,
-              4845
+              4032,
+              4234,
+              4425,
+              4715,
+              4886
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -1524,8 +1524,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.1,
-            "custo_usd": 0.005051
+            "segundos": 0.16,
+            "custo_usd": 0.005092
           },
           "motivos_recusa": [],
           "consultas": [
@@ -1585,14 +1585,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 22143,
+            "tokens_entrada": 22347,
             "tokens_saida": 542,
             "entrada_por_chamada": [
-              4006,
-              4203,
-              4394,
-              4684,
-              4856
+              4046,
+              4244,
+              4435,
+              4725,
+              4897
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -1604,8 +1604,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.07,
-            "custo_usd": 0.005079
+            "segundos": 0.14,
+            "custo_usd": 0.00512
           },
           "motivos_recusa": [],
           "consultas": [
@@ -1667,14 +1667,14 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 22315,
+            "tokens_entrada": 22519,
             "tokens_saida": 541,
             "entrada_por_chamada": [
-              4038,
-              4239,
-              4429,
-              4719,
-              4890
+              4079,
+              4279,
+              4470,
+              4760,
+              4931
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -1686,8 +1686,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.1,
-            "custo_usd": 0.005112
+            "segundos": 0.13,
+            "custo_usd": 0.005153
           },
           "motivos_recusa": [],
           "consultas": [
@@ -1749,14 +1749,14 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 22140,
+            "tokens_entrada": 22345,
             "tokens_saida": 553,
             "entrada_por_chamada": [
-              3984,
-              4184,
-              4407,
-              4697,
-              4868
+              4025,
+              4225,
+              4448,
+              4738,
+              4909
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -1768,8 +1768,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.07,
-            "custo_usd": 0.005092
+            "segundos": 0.15,
+            "custo_usd": 0.005133
           },
           "motivos_recusa": [],
           "consultas": [
@@ -1831,14 +1831,14 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 22087,
+            "tokens_entrada": 22291,
             "tokens_saida": 526,
             "entrada_por_chamada": [
-              3986,
-              4188,
-              4388,
-              4679,
-              4846
+              4027,
+              4229,
+              4428,
+              4720,
+              4887
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -1850,8 +1850,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.05,
-            "custo_usd": 0.005049
+            "segundos": 0.12,
+            "custo_usd": 0.005089
           },
           "motivos_recusa": [],
           "consultas": [
@@ -1913,14 +1913,14 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 22057,
+            "tokens_entrada": 22260,
             "tokens_saida": 527,
             "entrada_por_chamada": [
-              3984,
-              4188,
-              4378,
-              4668,
-              4839
+              4024,
+              4228,
+              4419,
+              4709,
+              4880
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -1932,8 +1932,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.05,
-            "custo_usd": 0.005044
+            "segundos": 0.14,
+            "custo_usd": 0.005084
           },
           "motivos_recusa": [],
           "consultas": [
@@ -1995,11 +1995,11 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 8187,
+            "tokens_entrada": 8269,
             "tokens_saida": 366,
             "entrada_por_chamada": [
-              3994,
-              4193
+              4035,
+              4234
             ],
             "chamadas_modelo": 2,
             "ferramentas_por_chamada": [
@@ -2008,8 +2008,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 1,
-            "segundos": 0.01,
-            "custo_usd": 0.002077
+            "segundos": 0.05,
+            "custo_usd": 0.002093
           },
           "motivos_recusa": [],
           "consultas": [
@@ -2047,11 +2047,11 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 8167,
+            "tokens_entrada": 8249,
             "tokens_saida": 415,
             "entrada_por_chamada": [
-              3983,
-              4184
+              4024,
+              4225
             ],
             "chamadas_modelo": 2,
             "ferramentas_por_chamada": [
@@ -2060,8 +2060,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 1,
-            "segundos": 0.01,
-            "custo_usd": 0.002131
+            "segundos": 0.05,
+            "custo_usd": 0.002148
           },
           "motivos_recusa": [],
           "consultas": [
@@ -2097,14 +2097,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 25112,
+            "tokens_entrada": 25316,
             "tokens_saida": 528,
             "entrada_por_chamada": [
-              4599,
-              4798,
-              4988,
-              5278,
-              5449
+              4640,
+              4838,
+              5029,
+              5319,
+              5490
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -2116,8 +2116,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.05,
-            "custo_usd": 0.005656
+            "segundos": 0.14,
+            "custo_usd": 0.005697
           },
           "motivos_recusa": [],
           "consultas": [
@@ -2177,14 +2177,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 25342,
+            "tokens_entrada": 25547,
             "tokens_saida": 527,
             "entrada_por_chamada": [
-              4646,
-              4843,
-              5034,
-              5324,
-              5495
+              4687,
+              4884,
+              5075,
+              5365,
+              5536
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -2196,8 +2196,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.04,
-            "custo_usd": 0.005701
+            "segundos": 0.12,
+            "custo_usd": 0.005742
           },
           "motivos_recusa": [],
           "consultas": [
@@ -2253,19 +2253,19 @@
           "exige_autorizacao_superior": 14,
           "criterios_nao_atendidos": 14
         },
-        "tokens_entrada": 288281,
+        "tokens_entrada": 290890,
         "tokens_saida": 7210,
         "chamadas_modelo": 64,
         "chamadas_ferramenta": 50,
         "max_ferramentas_simultaneas": 1,
-        "custo_total_usd": 0.066309,
-        "custo_medio_usd": 0.004736,
-        "custo_min_usd": 0.002077,
-        "custo_max_usd": 0.005701,
-        "tempo_total_s": 0.61,
-        "tempo_medio_s": 0.04,
+        "custo_total_usd": 0.06683,
+        "custo_medio_usd": 0.004774,
+        "custo_min_usd": 0.002093,
+        "custo_max_usd": 0.005742,
+        "tempo_total_s": 1.49,
+        "tempo_medio_s": 0.11,
         "tempo_min_s": 0.02,
-        "tempo_max_s": 0.11,
+        "tempo_max_s": 0.16,
         "criterios_verificados": [
           "cadastro",
           "dados_completos",
@@ -2297,14 +2297,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 22106,
+            "tokens_entrada": 22309,
             "tokens_saida": 528,
             "entrada_por_chamada": [
-              3998,
-              4196,
-              4387,
-              4677,
-              4848
+              4038,
+              4237,
+              4428,
+              4718,
+              4888
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -2316,8 +2316,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.11,
-            "custo_usd": 0.005055
+            "segundos": 0.14,
+            "custo_usd": 0.005095
           },
           "motivos_recusa": [],
           "consultas": [
@@ -2377,14 +2377,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 22131,
+            "tokens_entrada": 22334,
             "tokens_saida": 556,
             "entrada_por_chamada": [
-              3984,
-              4182,
-              4405,
-              4695,
-              4865
+              4025,
+              4223,
+              4445,
+              4735,
+              4906
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -2396,8 +2396,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.04,
-            "custo_usd": 0.005093
+            "segundos": 0.1,
+            "custo_usd": 0.005134
           },
           "motivos_recusa": [],
           "consultas": [
@@ -2457,14 +2457,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 22077,
+            "tokens_entrada": 22279,
             "tokens_saida": 528,
             "entrada_por_chamada": [
-              3989,
-              4191,
-              4382,
-              4672,
-              4843
+              4030,
+              4232,
+              4422,
+              4712,
+              4883
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -2476,8 +2476,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.03,
-            "custo_usd": 0.005049
+            "segundos": 0.14,
+            "custo_usd": 0.005089
           },
           "motivos_recusa": [],
           "consultas": [
@@ -2537,14 +2537,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 22329,
+            "tokens_entrada": 22533,
             "tokens_saida": 545,
             "entrada_por_chamada": [
-              4036,
-              4243,
-              4433,
-              4725,
-              4892
+              4077,
+              4283,
+              4474,
+              4766,
+              4933
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -2556,8 +2556,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.03,
-            "custo_usd": 0.00512
+            "segundos": 0.13,
+            "custo_usd": 0.005161
           },
           "motivos_recusa": [],
           "consultas": [
@@ -2619,14 +2619,14 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 22088,
+            "tokens_entrada": 22292,
             "tokens_saida": 528,
             "entrada_por_chamada": [
-              3991,
-              4194,
-              4384,
-              4674,
-              4845
+              4032,
+              4234,
+              4425,
+              4715,
+              4886
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -2638,8 +2638,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.06,
-            "custo_usd": 0.005051
+            "segundos": 0.11,
+            "custo_usd": 0.005092
           },
           "motivos_recusa": [],
           "consultas": [
@@ -2699,14 +2699,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 22143,
+            "tokens_entrada": 22347,
             "tokens_saida": 542,
             "entrada_por_chamada": [
-              4006,
-              4203,
-              4394,
-              4684,
-              4856
+              4046,
+              4244,
+              4435,
+              4725,
+              4897
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -2718,8 +2718,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.03,
-            "custo_usd": 0.005079
+            "segundos": 0.16,
+            "custo_usd": 0.00512
           },
           "motivos_recusa": [],
           "consultas": [
@@ -2781,14 +2781,14 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 22315,
+            "tokens_entrada": 22519,
             "tokens_saida": 541,
             "entrada_por_chamada": [
-              4038,
-              4239,
-              4429,
-              4719,
-              4890
+              4079,
+              4279,
+              4470,
+              4760,
+              4931
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -2800,8 +2800,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.03,
-            "custo_usd": 0.005112
+            "segundos": 0.1,
+            "custo_usd": 0.005153
           },
           "motivos_recusa": [],
           "consultas": [
@@ -2863,14 +2863,14 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 22140,
+            "tokens_entrada": 22345,
             "tokens_saida": 553,
             "entrada_por_chamada": [
-              3984,
-              4184,
-              4407,
-              4697,
-              4868
+              4025,
+              4225,
+              4448,
+              4738,
+              4909
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -2882,8 +2882,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.04,
-            "custo_usd": 0.005092
+            "segundos": 0.12,
+            "custo_usd": 0.005133
           },
           "motivos_recusa": [],
           "consultas": [
@@ -2945,14 +2945,14 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 22087,
+            "tokens_entrada": 22291,
             "tokens_saida": 526,
             "entrada_por_chamada": [
-              3986,
-              4188,
-              4388,
-              4679,
-              4846
+              4027,
+              4229,
+              4428,
+              4720,
+              4887
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -2964,8 +2964,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.03,
-            "custo_usd": 0.005049
+            "segundos": 0.1,
+            "custo_usd": 0.005089
           },
           "motivos_recusa": [],
           "consultas": [
@@ -3027,14 +3027,14 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 22057,
+            "tokens_entrada": 22260,
             "tokens_saida": 527,
             "entrada_por_chamada": [
-              3984,
-              4188,
-              4378,
-              4668,
-              4839
+              4024,
+              4228,
+              4419,
+              4709,
+              4880
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -3046,8 +3046,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.05,
-            "custo_usd": 0.005044
+            "segundos": 0.11,
+            "custo_usd": 0.005084
           },
           "motivos_recusa": [],
           "consultas": [
@@ -3109,11 +3109,11 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 8187,
+            "tokens_entrada": 8269,
             "tokens_saida": 366,
             "entrada_por_chamada": [
-              3994,
-              4193
+              4035,
+              4234
             ],
             "chamadas_modelo": 2,
             "ferramentas_por_chamada": [
@@ -3122,8 +3122,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 1,
-            "segundos": 0.02,
-            "custo_usd": 0.002077
+            "segundos": 0.04,
+            "custo_usd": 0.002093
           },
           "motivos_recusa": [],
           "consultas": [
@@ -3161,11 +3161,11 @@
             ]
           },
           "metricas": {
-            "tokens_entrada": 8167,
+            "tokens_entrada": 8249,
             "tokens_saida": 415,
             "entrada_por_chamada": [
-              3983,
-              4184
+              4024,
+              4225
             ],
             "chamadas_modelo": 2,
             "ferramentas_por_chamada": [
@@ -3175,7 +3175,7 @@
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 1,
             "segundos": 0.02,
-            "custo_usd": 0.002131
+            "custo_usd": 0.002148
           },
           "motivos_recusa": [],
           "consultas": [
@@ -3211,14 +3211,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 25112,
+            "tokens_entrada": 25316,
             "tokens_saida": 528,
             "entrada_por_chamada": [
-              4599,
-              4798,
-              4988,
-              5278,
-              5449
+              4640,
+              4838,
+              5029,
+              5319,
+              5490
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -3230,8 +3230,8 @@
             ],
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
-            "segundos": 0.05,
-            "custo_usd": 0.005656
+            "segundos": 0.15,
+            "custo_usd": 0.005697
           },
           "motivos_recusa": [],
           "consultas": [
@@ -3291,14 +3291,14 @@
             "nao_atendidos_agente": []
           },
           "metricas": {
-            "tokens_entrada": 25342,
+            "tokens_entrada": 25547,
             "tokens_saida": 527,
             "entrada_por_chamada": [
-              4646,
-              4843,
-              5034,
-              5324,
-              5495
+              4687,
+              4884,
+              5075,
+              5365,
+              5536
             ],
             "chamadas_modelo": 5,
             "ferramentas_por_chamada": [
@@ -3311,7 +3311,7 @@
             "max_ferramentas_simultaneas": 1,
             "chamadas_ferramenta": 4,
             "segundos": 0.07,
-            "custo_usd": 0.005701
+            "custo_usd": 0.005742
           },
           "motivos_recusa": [],
           "consultas": [
