@@ -12,3 +12,5 @@ bancos/
 *.db-shm
 *.sqlite
 *.sqlite3
+
+backup-testes-api/
