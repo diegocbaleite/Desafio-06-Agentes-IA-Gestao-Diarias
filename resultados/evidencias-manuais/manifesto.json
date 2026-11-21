@@ -1,0 +1,117 @@
+{
+  "tipo": "evidencias manuais",
+  "data": "2026-11-21",
+  "modo": "simulador local, exceto pip/pytest e visualização de resultados históricos",
+  "arquivos": [
+    {
+      "arquivo": "01-instalacao-pip-check.png",
+      "descricao": "Instalação e pip check sem conflitos",
+      "sha256": "c8645478716c30acadc65da542597a1c0af10d735378dfad9fc570cd093caed6"
+    },
+    {
+      "arquivo": "02-pytest-98-aprovados.png",
+      "descricao": "Execução local: 98 testes aprovados em 16,22 s",
+      "sha256": "9b3a3e3d608c03ac2a6b78afcfaa10268a7188753ac4b4ffb5885bf321f0540e"
+    },
+    {
+      "arquivo": "03-painel-streamlit.png",
+      "descricao": "Painel e navegação no simulador",
+      "sha256": "39b65f80667c08676f760d69a78c13bc0eacb2332127c591db64f786176cdf7a"
+    },
+    {
+      "arquivo": "03b-conferencia-humana.png",
+      "descricao": "Página de conferência humana sem análise na sessão",
+      "sha256": "4279c39e650ff4896b572d5810e6897c5980858e537ae49cd3402c23179d84e5"
+    },
+    {
+      "arquivo": "03c-diligencias.png",
+      "descricao": "Página de diligências antes de analisar pedido",
+      "sha256": "696a2725519f2e3ac30c89091cd256939c75b719a2d696cad3c2efa901329e3f"
+    },
+    {
+      "arquivo": "03d-memoria-lgpd.png",
+      "descricao": "Página Memória e LGPD",
+      "sha256": "b888fed62ac07ec46bb7e3dea0a16c2349c03dbd33dc0fa62fac5b8c3282b0b0"
+    },
+    {
+      "arquivo": "03e-resultados-auditoria.png",
+      "descricao": "Página de resultados e auditoria",
+      "sha256": "2c03aee00cec21c9c08fe445d7f3b2b5bdadb61b7b0de9a38d7ee18db25c4f06"
+    },
+    {
+      "arquivo": "04-pedido-0101-resumo.png",
+      "descricao": "Pedido regular 0101: 3,5 diárias e R$980",
+      "sha256": "5d0f996cbd71c457d3319948ea7278e4083cb36e5a73e831f3f2ae97e4a0c7d2"
+    },
+    {
+      "arquivo": "04b-pedido-0101-verificacoes.png",
+      "descricao": "Pedido regular 0101: verificações e quatro consultas",
+      "sha256": "92de7225f1733ab75bb48dc22e49890218dc5e9d956bbc1025893ff7edcfbb09"
+    },
+    {
+      "arquivo": "05-pedido-0107-injecao.png",
+      "descricao": "Justificativa com instrução maliciosa no pedido 0107",
+      "sha256": "8a13faee43af474b13ed0ca11cbc75aca90fcfad91b5801a1fe912af95050839"
+    },
+    {
+      "arquivo": "05b-pedido-0107-bloqueio.png",
+      "descricao": "Pedido 0107 não recomendado com alertas",
+      "sha256": "b4a7b7393d0a552cae525ae95b1c00fe8fbf420eabdbe2a68f8259f391022b39"
+    },
+    {
+      "arquivo": "06-pedido-0111-diligencia.png",
+      "descricao": "0111: data ausente, diligência",
+      "sha256": "117861e42381869a40535a3297620ab3a6f599900839b5ee9fbc7e85208decfe"
+    },
+    {
+      "arquivo": "06b-pedido-0111-sessao.png",
+      "descricao": "0111: sessão recuperada antes da complementação",
+      "sha256": "0da267b3648abc9383318b053d65d3c2dcae5d390f3f6a61069fa8d371a695dc"
+    },
+    {
+      "arquivo": "06c-pedido-0111-complementado.png",
+      "descricao": "0111: resultado após complementar retorno",
+      "sha256": "dfe43b8b13099973d22233c9d958d4c1a5d605a693f8715cb704435320d1e73e"
+    },
+    {
+      "arquivo": "06d-pedido-0112-diligencia.png",
+      "descricao": "0112: matrícula errada detectada",
+      "sha256": "11e026e75e40b9e085a01861aabf8103b23b16804af46db9aa7013fced89f6c2"
+    },
+    {
+      "arquivo": "06e-pedido-0112-sessao.png",
+      "descricao": "0112: sessão sob user_id anterior",
+      "sha256": "1010ffdb07e0c7142dc8fd96139c8f60d06e4a5883d13ae3945eb9b6a25e4211"
+    },
+    {
+      "arquivo": "06f-pedido-0112-complementado.png",
+      "descricao": "0112: matrícula corrigida e valor R$770",
+      "sha256": "cc066df2757994a817b773d14fc777efbea13136054efb2e7ce645ed9a809e14"
+    },
+    {
+      "arquivo": "07-carla-antes-exclusao.png",
+      "descricao": "Carla: sessão 0112 sob outro user_id",
+      "sha256": "ace968a41ba4b29a0eeee101901d2f5d4a078edfa8fd8a7836ce5b3c22bd12df"
+    },
+    {
+      "arquivo": "07b-carla-depois-exclusao.png",
+      "descricao": "Carla: nada restou no banco do agente",
+      "sha256": "9640036a78236ed0c73a71fb925b634a967dbb4c2b04e76fc77c557bd203a561"
+    },
+    {
+      "arquivo": "07c-beatriz-antes-exclusao.png",
+      "descricao": "Beatriz: sessão 0111 encontrada",
+      "sha256": "59a5ff8109233bdc90b24154b30d8e666787fa234a8c42c71811352c08baf533"
+    },
+    {
+      "arquivo": "07d-beatriz-depois-exclusao.png",
+      "descricao": "Beatriz: nada restou no banco do agente",
+      "sha256": "1ad17e2814921c912470caedbfcfd9cded1b7fa34e9cbaa4ddfe788eb82c54e0"
+    },
+    {
+      "arquivo": "08-evidencias-pytest.png",
+      "descricao": "Evidência da revisão mostrando 98 passed",
+      "sha256": "9b8d23cf6f2335d6e2dc8f49a114e70f96432b978776d42ae192874ab575c230"
+    }
+  ]
+}
