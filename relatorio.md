@@ -102,3 +102,11 @@ Mesmo com paralelismo habilitado, o modelo executou no máximo uma ferramenta po
 Use o Python da `.venv`, conforme `LEIA-ME.md`, e configure a chave somente no `.env`. Os comandos de avaliação são `python -m avaliacao.executar_casos`, o mesmo comando com `--paralelas`, `python -m avaliacao.medir_memoria`, `python -m avaliacao.provocar_falhas`, `python -m avaliacao.medir_desempenho` e `python -m avaliacao.gerar_relatorio`.
 
 Os resultados anteriores foram preservados em `resultados/historico/`. O simulador fica em pasta separada e seus números não são apresentados como medições do modelo. Feriados e rateio de viagens entre meses seguem as limitações do gerador do exercício.
+
+## Atualização das evidências finais — 21/11/2026
+
+A conclusão histórica acima permanece válida **para a execução de 19/11/2026**. Depois das correções F1–F8, foram registrados [131 testes locais aprovados](resultados/evidencias/pytest_correcao_20261121.txt) com simulador e AppTest (sem nova bateria de 84 chamadas reais). Uma rodada manual posterior com a API real deixou [29 prints indexados](resultados/INDICE_EVIDENCIAS_API_REAL.md), abrangendo 0101, 0107, diligências e complementações 0111/0112, conferência humana e memória.
+
+Na [evidência JSON de 21/11](resultados/evidencias/eliminacao_api_207418_20261121155444.json), a sessão 0112 sob identificador anterior foi eliminada com confirmação; as outras três sessões foram preservadas e a busca por matrícula/nome retornou zero ocorrências **no banco de trabalho do agente**. O registro administrativo de seis análises e uma conferência permaneceu visível na interface (captura 29). Isso não demonstra expurgo forense de backups, nem limpeza dos registros administrativos.
+
+Os documentos de arquitetura [desenho.md](desenho.md), [LEIA-ME.md](LEIA-ME.md) e a [estrutura completa](docs/ESTRUTURA_PROJETO.md) distinguem fonte de código, medição histórica, regressões locais e execução manual. A aderência ao enunciado oficial do *Desafio 01*, fornecido posteriormente ao avaliador, foi reavaliada em [requisitos_rastreabilidade.md](requisitos_rastreabilidade.md).
